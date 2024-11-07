@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_TechnicianItem"
+    android:orientation="vertical">
+    <!--    state-layer-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:gravity="center">
+        <!--        leading element-->
+        <LinearLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginRight="10dp">
+
+            <ImageView
+                android:id="@+id/iv_TechnicianItem_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_wrench_screwdriver"
+                app:tint="@color/neutral_main"
+                android:scaleType="fitXY"
+                />
+        </LinearLayout>
+<!--        content-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginRight="5dp">
+            <TextView
+                android:id="@+id/tv_TechnicianItem_username"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:letterSpacing="0.05"
+                android:lineHeight="24sp"
+                android:text="Tên kĩ thuật viên"
+                android:textColor="@color/neutral_main"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_TechnicianItem_address"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:letterSpacing="0.05"
+                android:lineHeight="20sp"
+                android:textSize="14sp"
+                android:text="210/23/12 Quang Trung, phường Phú Mỹ, Quận 7, tp.Hồ Chí Mình"
+                android:textColor="@color/neutral_main"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_TechnicianItem_available_from_available_to"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:letterSpacing="0.05"
+                android:lineHeight="16sp"
+                android:textSize="12sp"
+                android:text="Hoạt động : 09:00 - 24:00"
+                android:textColor="@color/neutral_main"
+                android:textStyle="normal" />
+            <TextView
+                android:id="@+id/tv_TechnicianItem_work_area"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:letterSpacing="0.05"
+                android:lineHeight="16sp"
+                android:text="Khu vực làm việc: "
+                android:textColor="@color/neutral_main"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+        <!--            trailing element-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_TechnicianItem_watch_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@drawable/custom_button_primary_outline"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Xem thông tin"
+                android:textAllCaps="false"
+                android:textColor="@color/button_color_primary"
+                android:textSize="14sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:layout_marginBottom="8dp"/>
+            <TextView
+                android:id="@+id/btn_TechnicianItem_status"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:background="@drawable/button_success_outline_enabled"
+                android:text="Hoạt động"
+                android:textAllCaps="false"
+                android:textColor="@color/success_main"
+                android:textSize="14sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                android:layout_marginBottom="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

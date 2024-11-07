@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent"
+    tools:context=".Presentation.Activity.RequestEmergencyActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- MapView sẽ tràn viền -->
+        <org.osmdroid.views.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="false" />
+
+        <!-- Toolbar và các nút khác sẽ nổi trên MapView -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/AppTheme.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="4dp"
+            app:contentInsetEnd="0dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/background_toolbar_emergency_rad_28_solid_white"
+            android:minHeight="?attr/actionBarSize">
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@drawable/button_danger_filled_enabled"
+                android:src="@drawable/ic_back"
+                app:tint="@color/gray_02_100" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tv_Request_Status"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top|start"
+                    android:letterSpacing="0.05"
+                    android:lineHeight="24sp"
+                    android:text="Đã gửi yêu cầu cứu hộ khẩn"
+                    android:textColor="@color/danger_main"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+                <TextView
+                    android:id="@+id/tv_Request_Waiting"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top|start"
+                    android:letterSpacing="0.05"
+                    android:lineHeight="20sp"
+                    android:text="Vui lòng chờ..."
+                    android:textColor="@color/danger_main"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageButton
+            android:id="@+id/btn_center"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="130dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/button_danger_filled_enabled"
+            android:drawableTint="@drawable/button_text_color"
+            android:enabled="true"
+            android:padding="8dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_my_location"
+            android:stateListAnimator="@animator/button_scale_state"
+            app:tint="@color/gray_02_100" />
+
+    </FrameLayout>
+
+    <!-- Bottom Sheet Layouts -->
+    <include
+        android:id="@+id/ll_Techinician_is_coming"
+        layout="@layout/bottom_sheet_techinician_is_comming" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

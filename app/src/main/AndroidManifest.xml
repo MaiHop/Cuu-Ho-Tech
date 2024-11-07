@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
+    <application
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:icon="@drawable/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/ic_logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CuuHo"
+        tools:targetApi="31">
+        <activity
+            android:name=".Presentation.Activity.ResetPassword.ResetPasswordAccountActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.RequestEmergencyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.RequestDetailActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.Register.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.TechnicianLocationMapActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.ListTechnicianMapActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Custom.SwipeEffect.SwipeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Test.Test_Create_Request_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Test.Test__Bottom_sheet"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.ReviewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.SearchServiceAndOrderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.DetailUserActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.UserActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.PaymentMethodActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.ListTechnicianActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.DetailMessageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.MessagerAndNotifyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.OrderListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.ConfirmCancellationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.DetailServiceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.MainActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Presentation.Activity.Intro.Intro1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.Intro.Intro2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.Intro.Intro3Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.Intro.LoadingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.Intro.WelcomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.ResetPassword.ResetPasswordErrorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.ResetPassword.ResetPasswordNewActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.ResetPassword.ResetPasswordOTPActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.ResetPassword.ResetPasswordSuccessActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Test.Test"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.OrderRescueActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".Presentation.Activity.DetailTechnicianMapActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Custom.CustomLayout"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.Register.RegisterAvatarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.Register.RegisterCalendarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Presentation.Activity.Register.RegisterRechargeActivity"
+            android:exported="true" />
+
+        <receiver
+            android:name=".Presentation.ConnectInternet.NetworkReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.cuu_ho_tech.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

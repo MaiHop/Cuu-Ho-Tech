@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/primary_secondary"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|center"
+        app:contentInsetStart="4dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/custom_button_back"
+            android:contentDescription="image Back"
+            android:src="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá"
+            android:textColor="@color/gray_800"
+            android:textSize="22sp"
+            android:lineHeight="28dp"
+            android:letterSpacing="0"
+            android:visibility="visible"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--        Chứa Nội dung chi tiết đơn và Nhóm button-->
+    <RelativeLayout
+        android:id="@+id/rl_review"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--       Tạo ScrollView-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp">
+            <!--Wrapper các thành phần đánh giá-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!--Danh sách các thành phần chi tiết đơn-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!--Đánh giá -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="22dp"
+                        android:background="@drawable/background_item_normal"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+                        <!--Tiêu đề-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="Bạn cảm thấy dịch vụ như thế nào?"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:textAlignment="center"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/neutral_light_border"
+                            android:orientation="vertical" />
+                        <!--Mức độ đánh giá-->
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:columnCount="5"
+                            android:gravity="center|top"
+                            android:paddingTop="20dp"
+                            android:paddingBottom="10dp"
+                            android:rowCount="1">
+
+                            <ImageButton
+                                android:id="@+id/btn_Review_star_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center"
+                                android:background="@color/gray_02_100"
+                                android:drawablePadding="5dp"
+                                android:drawableTint="@drawable/button_text_color"
+                                android:enabled="true"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_star_review"
+                                android:stateListAnimator="@animator/button_scale_state"
+                                android:text="sfdfsdfsd"
+                                android:textAllCaps="false"
+                                android:textColor="@drawable/button_text_color"
+                                android:textSize="14sp"
+                                app:tint="@color/neutral_focus" />
+                            <ImageButton
+                                android:id="@+id/btn_Review_star_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center"
+                                android:background="@color/gray_02_100"
+                                android:drawablePadding="5dp"
+                                android:drawableTint="@drawable/button_text_color"
+                                android:enabled="true"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_star_review"
+                                android:stateListAnimator="@animator/button_scale_state"
+                                android:text="sfdfsdfsd"
+                                android:textAllCaps="false"
+                                android:textColor="@drawable/button_text_color"
+                                android:textSize="14sp"
+                                app:tint="@color/neutral_focus" />
+                            <ImageButton
+                                android:id="@+id/btn_Review_star_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center"
+                                android:background="@color/gray_02_100"
+                                android:drawablePadding="5dp"
+                                android:drawableTint="@drawable/button_text_color"
+                                android:enabled="true"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_star_review"
+                                android:stateListAnimator="@animator/button_scale_state"
+                                android:text="sfdfsdfsd"
+                                android:textAllCaps="false"
+                                android:textColor="@drawable/button_text_color"
+                                android:textSize="14sp"
+                                app:tint="@color/neutral_focus" />
+                            <ImageButton
+                                android:id="@+id/btn_Review_star_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center"
+                                android:background="@color/gray_02_100"
+                                android:drawablePadding="5dp"
+                                android:drawableTint="@drawable/button_text_color"
+                                android:enabled="true"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_star_review"
+                                android:stateListAnimator="@animator/button_scale_state"
+                                android:text="sfdfsdfsd"
+                                android:textAllCaps="false"
+                                android:textColor="@drawable/button_text_color"
+                                android:textSize="14sp"
+                                app:tint="@color/neutral_focus" />
+                            <ImageButton
+                                android:id="@+id/btn_Review_star_5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="center"
+                                android:background="@color/gray_02_100"
+                                android:drawablePadding="5dp"
+                                android:drawableTint="@drawable/button_text_color"
+                                android:enabled="true"
+                                android:padding="8dp"
+                                android:src="@drawable/ic_star_review"
+                                android:stateListAnimator="@animator/button_scale_state"
+                                android:text="sfdfsdfsd"
+                                android:textAllCaps="false"
+                                android:textColor="@drawable/button_text_color"
+                                android:textSize="14sp"
+                                app:tint="@color/neutral_focus" />
+                        </GridLayout>
+                    </LinearLayout>
+
+                    <!--Nhận xét-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_marginBottom="22dp"
+                        android:background="@drawable/background_item_normal"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+                        <!--Tiêu đề-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="Nhận xét"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/neutral_light_border"
+                            android:orientation="vertical" />
+                        <!--Viết Nhận xét-->
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:columnCount="1"
+                            android:gravity="left"
+                            android:paddingBottom="10dp"
+                            android:rowCount="2">
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/til_Review_comment"
+                                style="@style/CustomTextInputLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="150dp"
+                                android:layout_marginBottom="20dp"
+                                android:hint="Viết nhận xét ở đây"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxStrokeColor="@color/gray_02_100"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:errorEnabled="true"
+                                app:errorIconDrawable="@drawable/ic_error"
+                                app:errorIconTint="@color/danger_main"
+                                app:errorTextColor="@color/danger_main"
+                                app:helperTextTextColor="@color/danger_main">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edt_Review_comment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="left"
+                                    android:inputType="textMultiLine"
+                                    android:padding="0dp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </GridLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"/>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/background_border_top"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_btn_gr_state_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_RequestDetail_review"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_primary_outline"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="ĐÁNH GIÁ"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_primary"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.23"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <include
+        android:id="@+id/ll_no_internet"
+        android:visibility="gone"
+        layout="@layout/layout_no_internet" />
+
+</LinearLayout>

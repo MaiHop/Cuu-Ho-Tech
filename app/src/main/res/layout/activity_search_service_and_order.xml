@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".Presentation.Activity.SearchServiceAndOrderActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/custom_button_back"
+            android:contentDescription="image Back"
+            android:src="@drawable/ic_back" />
+
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edt_text"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginEnd="5dp"
+                android:hint="Tìm kiếm"
+                android:inputType="text"
+                android:paddingEnd="35dp"
+                android:paddingStart="15dp"
+                android:background="@drawable/custom_edittext_background"
+                android:padding="10dp" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_delete"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="right"
+                android:contentDescription="delete"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/custom_button_back"
+                android:src="@drawable/ic_delete" />
+
+        </FrameLayout>
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_search"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/custom_button_icon_search"
+            android:contentDescription="image Search"
+            android:src="@drawable/ic_search" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button_selector"
+            android:button="@android:color/transparent"
+            android:paddingLeft="15dp"
+            android:enabled="false"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp"
+            android:text="Tất cả"
+            android:textColor="@color/primary_main"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/custom_button_selector"
+            android:button="@android:color/transparent"
+            android:drawableStart="@drawable/ic_car"
+            android:drawablePadding="10dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp"
+            android:text="Dịch vụ"
+            android:textColor="@color/primary_main"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btn_application"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/custom_button_selector"
+            android:button="@android:color/transparent"
+            android:drawableStart="@drawable/ic_order"
+            android:drawablePadding="10dp"
+            android:paddingLeft="15dp"
+            android:paddingTop="8dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="8dp"
+            android:text="Đơn của bạn"
+            android:textAlignment="center"
+            android:textColor="@color/primary_main"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/schemes_outline" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <ScrollView
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layout_list_service"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Dịch vụ"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/list_service"
+                        android:layout_width="match_parent"
+                        android:layout_height="800dp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btn_list_service"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/ripple_effect_button"
+                        android:text="Xem thêm dịch vụ"
+                        android:textColor="@color/button_color_primary"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/gray_02_50" />
+
+                <soup.neumorphism.NeumorphCardView
+                    android:id="@+id/layout_list_order"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:neumorph_shadowColorLight="@color/gray_02_70"
+                    app:neumorph_shapeType="flat">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:text="Đơn của bạn"
+                            android:textColor="@color/neutral_main"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/list_order"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="750dp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/btn_list_order"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/ripple_effect_button"
+                            android:text="Xem thêm đơn của bạn"
+                            android:textColor="@color/button_color_primary"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </soup.neumorphism.NeumorphCardView>
+            </LinearLayout>
+        </ScrollView>
+
+    </FrameLayout>
+
+
+</LinearLayout>

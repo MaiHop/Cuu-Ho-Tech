@@ -1,0 +1,60 @@
+package com.example.cuu_ho_tech.Presentation.Adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cuu_ho_tech.Presentation.ViewHolder.ItemViewHolder;
+import com.example.cuu_ho_tech.Utils.ClickListener;
+import com.example.cuu_ho_tech.databinding.ItemLocationBinding;
+
+import java.util.List;
+
+public class ListItemAdapter extends RecyclerView.Adapter<ItemViewHolder>{
+    private List<String> list_item;
+    private LayoutInflater minflater;
+    private Context context;
+    private ClickListener clickListener;
+    public ListItemAdapter(Context context, List<String> list_item, ClickListener clickListener) {
+        this.list_item = list_item;
+        this.clickListener = clickListener;
+        this.minflater = LayoutInflater.from(context);
+    }
+
+    public void setData(List<String> list_item) {
+        this.list_item = list_item;
+        notifyDataSetChanged();
+    }
+
+    @NonNull
+    @Override
+    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+
+        ItemLocationBinding binding = ItemLocationBinding.inflate(inflater, parent, false);
+
+        return new ItemViewHolder(binding);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+        String tech = list_item.get(position);
+
+        holder.updateUI(tech);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.clickItem(tech);
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return list_item.size();
+    }
+}

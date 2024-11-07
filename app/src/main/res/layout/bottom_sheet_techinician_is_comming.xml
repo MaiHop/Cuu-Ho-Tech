@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="30dp"
+    android:id="@+id/ll_Techinician_is_coming"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="100dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    android:background="@drawable/background_bottom_sheet">
+
+<!--    sheet header-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+<!--        Drag handle-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:orientation="vertical"
+            android:backgroundTint="@color/neutral_main"
+            app:cardCornerRadius="100dp"/>
+
+    </LinearLayout>
+<!--    label-text-->
+    <TextView
+        android:id="@+id/tv_Techinician_is_coming_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:gravity="start"
+        android:letterSpacing="0"
+        android:lineHeight="24sp"
+        android:text="Đang đến"
+        android:textColor="@color/neutral_main"
+        android:textSize="24sp"
+        android:textStyle="bold"
+         />
+    <!--Trạng thái-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/neutral_light_border"
+            android:orientation="vertical" />
+<!--        Trạng thái-->
+        <!--    state-layer-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:gravity="center">
+            <!--        leading element-->
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:orientation="vertical"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_marginRight="16dp">
+
+                <ImageView
+                    android:id="@+id/iv_TechnicianIsCom_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_wrench_screwdriver"
+                    app:tint="@color/neutral_main"
+                    android:scaleType="fitXY"
+                    />
+            </LinearLayout>
+            <!--        content-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginRight="16dp">
+                <TextView
+                    android:id="@+id/tv_TechnicianIsCom_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top"
+                    android:letterSpacing="0.05"
+                    android:lineHeight="24sp"
+                    android:text="Tên kĩ thuật viên"
+                    android:textColor="@color/neutral_main"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_TechnicianIsCom_license_plate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top"
+                    android:letterSpacing="0.05"
+                    android:lineHeight="20sp"
+                    android:text="Tên kĩ thuật viên"
+                    android:textColor="@color/neutral_main"
+                    android:textSize="14sp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible">
+            <com.nex3z.flowlayout.FlowLayout
+                android:id="@+id/ll_RequestDetail_btn_gr_state_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:flChildSpacing="auto">
+
+                <ImageButton
+                    android:id="@+id/btn_TechnicianIsCom_close"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/button_warning_outline_enabled"
+                    android:drawableTint="@drawable/button_text_color"
+                    android:enabled="true"
+                    android:padding="8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_delete"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="sfdfsdfsd"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/button_text_color"
+                    android:textSize="14sp"
+                    app:tint="@color/primary_main" />
+                <ImageButton
+                    android:id="@+id/btn_TechnicianIsCom_texting"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/button_warning_filled_enabled"
+                    android:drawableTint="@drawable/button_text_color"
+                    android:enabled="true"
+                    android:padding="8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_message_round"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="sfdfsdfsd"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/button_text_color"
+                    android:textSize="14sp"
+                    app:tint="@color/primary_main" />
+                <ImageButton
+                    android:id="@+id/btn_TechnicianIsCom_phone"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/button_warning_filled_enabled"
+                    android:drawableTint="@drawable/button_text_color"
+                    android:enabled="true"
+                    android:padding="8dp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_phone"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="sfdfsdfsd"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/button_text_color"
+                    android:textSize="14sp"
+                    app:tint="@color/primary_main" />
+            </com.nex3z.flowlayout.FlowLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

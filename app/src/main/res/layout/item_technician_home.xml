@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soup.neumorphism.NeumorphCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Widget.Neumorph.Button"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    app:neumorph_shadowElevation="3dp"
+    app:neumorph_strokeWidth="10dp"
+    app:neumorph_shadowColorLight="@color/gray_200"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.0"
+    app:neumorph_shapeType="flat">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/ripple_effect_button_radius"
+        android:layout_height="match_parent"
+        android:minHeight="100dp"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnContinue"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tên kỹ thuật viên"
+                android:textColor="@color/color_schemes"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/number_service"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="1 dịch vụ"
+                android:textColor="@color/color_schemes"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="999.999.999.999.999đ"
+                android:textColor="@color/success_main"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Ngày đặt: 12 th 02 2024"
+                android:textColor="@color/color_schemes"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/confirmed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_primary_outline_enabled"
+                android:paddingStart="8dp"
+                android:paddingTop="1dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="1dp"
+                android:text="Đã xác nhận"
+                android:textAllCaps="false"
+                android:textColor="@color/primary_main"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/processing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_warning_outline_pressed"
+                android:paddingStart="8dp"
+                android:paddingTop="1dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="1dp"
+                android:text="Đang xử lý"
+                android:textAllCaps="false"
+                android:textColor="@color/warning_main"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/completed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_success_outline_enabled"
+                android:paddingStart="8dp"
+                android:paddingTop="1dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="1dp"
+                android:text="Đã hoàn thành"
+                android:textAllCaps="false"
+                android:textColor="@color/success_main"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_danger_outline_enabled"
+                android:paddingStart="8dp"
+                android:paddingTop="1dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="1dp"
+                android:text="Đã hủy"
+                android:textAllCaps="false"
+                android:textColor="@color/danger_main"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/button_orange_outline_enabled"
+                android:paddingStart="8dp"
+                android:paddingTop="1dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="1dp"
+                android:text="Đã gửi"
+                android:textAllCaps="false"
+                android:textColor="@color/orange"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/btnContinue"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_right"
+            app:tint="@color/black" />
+
+
+    </LinearLayout>
+
+</soup.neumorphism.NeumorphCardView>

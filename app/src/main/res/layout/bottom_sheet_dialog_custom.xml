@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_BottomSheetDialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_bottom_sheet"
+    android:orientation="vertical"
+    android:padding="20dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <!--    sheet header-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <!--        Drag handle-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:backgroundTint="@color/neutral_main"
+            android:orientation="vertical"
+            app:cardCornerRadius="100dp" />
+
+    </LinearLayout>
+    <!--    label-text-->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:letterSpacing="0"
+        android:lineHeight="24sp"
+        android:paddingBottom="12dp"
+        android:text="Tiêu đề"
+        android:textColor="@color/neutral_main"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <!--    Tìm kiếm và danh sách kĩ thuật viên-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="0dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/neutral_light_border"
+            android:orientation="vertical" />
+        <!--       Tạo ScrollView-->
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp">
+            <!--Wrapper các thành phần trong danh sách-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--Danh sách các thành phần danh sách-->
+                <LinearLayout
+                    android:id="@+id/ll_ListItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <!--Danh sách item -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <!--Ô tìm kiếm-->
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/til_Search"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Nhập tên"
+                            app:boxBackgroundColor="@color/primary_secondary"
+                            app:boxCornerRadiusBottomEnd="28dp"
+                            app:boxCornerRadiusBottomStart="28dp"
+                            app:boxCornerRadiusTopEnd="28dp"
+                            app:boxCornerRadiusTopStart="28dp"
+                            app:boxStrokeWidth="0dp"
+                            app:boxStrokeWidthFocused="0dp"
+                            app:errorEnabled="true"
+                            app:errorIconDrawable="@drawable/ic_error"
+                            app:helperTextTextColor="@color/danger_main"
+                            app:startIconDrawable="@drawable/ic_search">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/edt_Search"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="text" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <!--Danh sách -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_ListItem"
+                            android:layout_width="match_parent"
+                            android:layout_height="400dp"
+                            android:scrollbars="none"
+                            tools:listitem="@layout/item_location">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--Danh sách các thành phần lọc-->
+                <LinearLayout
+                    android:id="@+id/ll_ListOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!--Danh sách item -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <!--Danh sách -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_ListOption"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:overScrollMode="never"
+                            android:scrollbars="none"
+                            tools:listitem="@layout/item_option">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="top"
+            android:letterSpacing="0.05"
+            android:lineHeight="24sp"
+            android:paddingLeft="10dp"
+            android:paddingTop="20dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp"
+            android:text="Chỉ chưa đầy một phút đăng ký, bạn có thể truy cập các dịch của chúng tôi. Nếu đã có tài khoản, bạn hãy đăng nhập để bắt đầu trải nghiệm."
+            android:textColor="@color/neutral_main"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/background_border_top"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_btn_gr_state_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_NegativeButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_primary_outline"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="Đăng ký"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_primary"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_PositiveButton"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_primary_filled"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="Đăng nhập"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

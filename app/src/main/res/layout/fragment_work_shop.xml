@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="0dp"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:elevation="3dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_back"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/custom_button_back"
+                    android:contentDescription="image Back"
+                    android:src="@drawable/ic_back" />
+
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edt_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/custom_edittext_background"
+                        android:hint="Tìm kiếm"
+                        android:inputType="text"
+                        android:padding="10dp"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="35dp" />
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btn_delete"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="5dp"
+                        android:background="@drawable/custom_button_back"
+                        android:contentDescription="delete"
+                        android:src="@drawable/ic_delete" />
+
+                </FrameLayout>
+
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btn_search"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/custom_button_icon_search"
+                    android:contentDescription="image Search"
+                    android:src="@drawable/ic_search" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/schemes_outline" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/list_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_search_layout"
+            style="@style/CustomButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/button_primary_outline_enabled_search"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="20dp"
+            android:elevation="2dp"
+            android:stateListAnimator="@animator/button_scale_state"
+            android:text="Nhập tên kĩ thuật viên"
+            android:textAlignment="viewStart"
+            android:textColor="@color/color_text_search"
+            android:textSize="16sp" />
+
+        <org.osmdroid.views.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </org.osmdroid.views.MapView>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_center"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="80dp"
+            android:background="@drawable/ripple_effect_button"
+            android:contentDescription="btn map"
+            android:src="@drawable/ic_map_zoom"
+            android:stateListAnimator="@animator/button_scale_state" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="150dp"
+            android:background="@drawable/background_border_btn_map"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_plus"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/ripple_effect_button_radius"
+                android:contentDescription="ic_add"
+                android:src="@drawable/ic_add" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_minus"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/ripple_effect_button_radius"
+                android:contentDescription="ic_minus"
+                android:src="@drawable/ic_minus" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <include
+        android:id="@+id/ll_ListTechnicianWorkshop"
+        layout="@layout/bottom_sheet_list_technician_workshop" />
+
+    <include
+        android:id="@+id/ll_WorkshopTechnicianInfo"
+        layout="@layout/bottom_sheet_workshop_technician_info" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

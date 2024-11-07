@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/primary_focus"
+    tools:context=".Test.Test__BotShet_create_request">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_request_create"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet tạo đơn cứu hộ"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_list_techinician_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet hiện danh sách kĩ thuật viên trong tạo đơn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_list_request_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet hiện sắp xếp đơn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_list_request_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet hiện lọc danh sách"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_techinician_is_comming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet hiện kĩ thuật đang đến"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_list_techinician_workshop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet hiện danh sách Tech trong workshop"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:layout_marginBottom="20dp" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_technician_info_workshop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet hiện thông tin tech trong workshop"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_remind_guest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet nhắc đăng nhập đăng ký"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_list_techinician_status_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet hiện danh sách cách sắp xếp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_Test_list_techinician_status_filter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:letterSpacing="0.05"
+                android:lineHeight="24sp"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp"
+                android:text="Kết quả chọn 1 cái"
+                android:textColor="@color/neutral_main"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_Test_list_location_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_primary_filled"
+                android:stateListAnimator="@animator/button_scale_state"
+                android:text="Bottom Sheet danh sách tỉnh thành quận huyện phường xã "
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tv_Test_list_location_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:letterSpacing="0.05"
+                android:lineHeight="24sp"
+                android:paddingLeft="10dp"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp"
+                android:text="Kết quả chọn 1 cái"
+                android:textColor="@color/neutral_main"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+
+        </LinearLayout>
+    </ScrollView>
+    <include
+        android:id="@+id/ll_RequestCreate"
+        layout="@layout/bottom_sheet_request_create"/>
+    <include
+        android:id="@+id/ll_ListTechnicianSearch"
+        layout="@layout/bottom_sheet_list_technician_search"/>
+    <include
+        android:id="@+id/ll_ListRequestSort"
+        layout="@layout/bottom_sheet_list_request_sort"/>
+    <include
+        android:id="@+id/ll_ListRequestFilter"
+        layout="@layout/bottom_sheet_list_request_filter"/>
+    <include
+        android:id="@+id/ll_Techinician_is_coming"
+        layout="@layout/bottom_sheet_techinician_is_comming"/>
+    <include
+        android:id="@+id/ll_ListTechnicianWorkshop"
+        layout="@layout/bottom_sheet_list_technician_workshop"/>
+    <include
+        android:id="@+id/ll_WorkshopTechnicianInfo"
+        layout="@layout/bottom_sheet_workshop_technician_info"/>
+    <include
+        android:id="@+id/ll_RemindGuest"
+        layout="@layout/bottom_sheet_remind_guest"/>
+    <include
+        android:id="@+id/ll_ListRequestStatusFilter"
+        layout="@layout/bottom_sheet_list_technician_status_filter"/>
+    <include
+        android:id="@+id/ll_ListLocation"
+        layout="@layout/bottom_sheet_list_location"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".Presentation.Activity.ConfirmCancellationActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|center"
+        android:paddingLeft="4dp"
+        android:paddingTop="8dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="8dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="4dp">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/custom_button_back"
+            android:contentDescription="image Back"
+            android:src="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0"
+            android:lineHeight="28dp"
+            android:text="Cứu Hộ"
+            android:textColor="@color/gray_800"
+            android:textSize="22sp"
+            android:visibility="gone" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/sv_RequestCancel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:letterSpacing="0"
+                android:lineHeight="28sp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_marginBottom="30dp"
+                android:text="Vui lòng liên hệ kĩ thuật viên để hủy đơn"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:titleTextColor="@color/gray_02_10"
+                />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="88dp"
+                    android:background="@drawable/background_confirm_cancellation_info"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="20dp">
+                    <!--Tên và SĐT-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/tv_ConfirmCancellation_tech_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.05"
+                                android:text="Tên kĩ thuật viên"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
+
+                            <TextView
+                                android:id="@+id/tv_ConfirmCancellation_tech_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.025"
+                                android:text="093456789"                              android:textSize="20sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <!--Button Gọi-->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/btn_RequestDetail_call"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_gravity="center_horizontal"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/custom_button_warning_filled"
+                            android:contentDescription="Gọi"
+                            android:drawableTint="@drawable/button_text_color"
+                            android:enabled="true"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_phone"
+                            android:stateListAnimator="@animator/button_scale_state"
+                            android:text="sfdfsdfsd"
+                            android:textAllCaps="false"
+                            android:textColor="@drawable/button_text_color"
+                            android:textSize="14sp"
+                            app:tint="@color/primary_main" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@drawable/background_confirm_cancellation_description"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:gravity="center">
+                    <!--Description-->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_RequestDetail_description"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Lý do hủy đơn"
+                        app:boxStrokeColor="@color/gray_02_100"
+                        app:boxStrokeWidth="0dp"
+                        app:boxStrokeWidthFocused="0dp"
+                        app:errorEnabled="true"
+                        app:errorIconDrawable="@drawable/ic_error"
+                        app:errorIconTint="@color/danger_main"
+                        app:errorTextColor="@color/danger_main"
+                        app:helperTextTextColor="@color/danger_main">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edt_RequestDetail_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="left"
+                            android:inputType="textMultiLine"
+                            android:padding="0dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!--        Lỗi  <com.example.cuu_ho.Custom.SwipeBtn.SwipeButton-->
+        <com.example.cuu_ho_tech.Custom.SwipeBtn.SwipeButton
+            android:id="@+id/swipe_no_state_RequestDetail_confirm_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            app:button_trail_enabled="true"
+            app:button_background="@drawable/background_success_swipe"
+            app:button_image_disabled="@drawable/ic_btn_swipe"
+            app:button_image_enabled="@drawable/ic_success_white"
+            app:initial_state="disabled"
+            app:inner_text="XÁC NHẬN HỦY"
+            app:inner_text_background="@drawable/shape_squared"
+            app:inner_text_color="@color/gray_02_100"
+            app:inner_text_size="16sp"
+            app:inner_text_top_padding="12dp"
+            app:inner_text_bottom_padding="12dp"
+            app:has_activate_state="true"/>
+
+    </LinearLayout>
+    <include
+        android:id="@+id/ll_no_internet"
+        android:visibility="gone"
+        layout="@layout/layout_no_internet" />
+</LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Presentation.Activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/connect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/danger_main"
+            android:text="Không có kết nối mạng"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+        </FrameLayout>
+    </LinearLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomAppBar"
+        android:layout_gravity="bottom"
+        app:contentInsetStart="0dp"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="50dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_Navigation_View"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="65dp"
+            app:labelVisibilityMode="labeled"
+            app:itemIconTint="@color/bottom_nav_icon_color"
+            app:itemTextColor="@color/bottom_nav_text_color"
+            app:itemActiveIndicatorStyle="@style/App.Custom_Indicator"
+            app:menu="@menu/bottom_menu" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:contentDescription="@string/emergency_rescue"
+        android:stateListAnimator="@animator/button_scale_state"
+        android:src="@drawable/ic_float_btn"
+        app:layout_anchor="@id/bottomAppBar"
+        app:maxImageSize="60dp"
+        app:tint="@null" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

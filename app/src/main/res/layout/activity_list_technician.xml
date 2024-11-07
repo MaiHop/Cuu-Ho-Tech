@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/gray_02_100"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|center"
+        app:contentInsetStart="4dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_toolbar_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/custom_button_back"
+            android:contentDescription="image Back"
+            android:src="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kĩ thuật viên"
+            android:textColor="@color/gray_800"
+            android:textSize="22sp"
+            android:lineHeight="28dp"
+            android:letterSpacing="0"
+            android:visibility="visible"/>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--Chứa Nội dung-->
+    <RelativeLayout
+        android:id="@+id/rl_ListTechnician"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--       Tạo ScrollView-->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp">
+            <!--Wrapper các thành phần trong danh sách-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <!--Danh sách các thành phần chi tiết đơn-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!--Button xem chi tiết trên bản đồ -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="22dp"
+                        android:orientation="vertical">
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_ListTechnician_golisttechnicianmap"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/custom_button_warning_filled"
+                            android:drawableLeft="@drawable/ic_map_search"
+                            android:drawablePadding="-70dp"
+                            android:drawableTint="@color/primary_main"
+                            android:gravity="center"
+                            android:paddingLeft="80dp"
+                            android:stateListAnimator="@animator/button_scale_state"
+                            android:text="Tìm kĩ thuật viên gần nhất"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_main"
+                            android:letterSpacing="0.01"
+                            android:lineHeight="20sp"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.76"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+                    </LinearLayout>
+                    <!--Danh sách lọc -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="22dp"
+                        android:orientation="vertical">
+                        <!--Phương thức lọc-->
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="none">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp">
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btn_ListTechnician_status"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/button_primary_outline_enabled"
+                                    android:drawableEnd="@drawable/ic_down_filled"
+                                    android:drawablePadding="5dp"
+                                    android:drawableTint="@color/button_color_primary"
+                                    android:letterSpacing="0.01"
+                                    android:lineHeight="20sp"
+                                    android:stateListAnimator="@animator/button_scale_state"
+                                    android:text="Tất cả"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/button_color_primary"
+                                    android:textSize="14sp" />
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btn_ListTechnician_province"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/button_outline_disabled"
+                                    android:drawableEnd="@drawable/ic_down_filled"
+                                    android:drawablePadding="5dp"
+                                    android:drawableTint="@color/neutral_main"
+                                    android:letterSpacing="0.01"
+                                    android:lineHeight="20sp"
+                                    android:stateListAnimator="@animator/button_scale_state"
+                                    android:text="Tỉnh/Thành"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/neutral_main"
+                                    android:textSize="14sp" />
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btn_ListTechnician_district"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/button_outline_disabled"
+                                    android:drawableEnd="@drawable/ic_down_filled"
+                                    android:drawablePadding="5dp"
+                                    android:drawableTint="@color/neutral_main"
+                                    android:letterSpacing="0.01"
+                                    android:lineHeight="20sp"
+                                    android:stateListAnimator="@animator/button_scale_state"
+                                    android:text="Quận/Huyện"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/neutral_main"
+                                    android:textSize="14sp" />
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/btn_ListTechnician_commune"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="10dp"
+                                    android:background="@drawable/button_outline_disabled"
+                                    android:drawableEnd="@drawable/ic_down_filled"
+                                    android:drawablePadding="5dp"
+                                    android:drawableTint="@color/neutral_main"
+                                    android:letterSpacing="0.01"
+                                    android:lineHeight="20sp"
+                                    android:stateListAnimator="@animator/button_scale_state"
+                                    android:text="Phường/Xã"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/neutral_main"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </HorizontalScrollView>
+<!--                        Danh sách -->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_ListTechnician"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/item_technician_search">
+
+                        </androidx.recyclerview.widget.RecyclerView>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"/>
+            </LinearLayout>
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/background_border_top"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible">
+
+
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_group_all"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:visibility="gone"
+                    android:id="@+id/btn_RequestDetail_Cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_button_danger_outline"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="HỦY ĐƠN"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_danger"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.23"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_group_booking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_RequestDetail_Save"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_primary_outline"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="LƯU ĐƠN"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_primary"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.23"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_RequestDetail_Booking"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_primary_filled"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="ĐẶT LỊCH"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.23"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_btn_gr_state_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_ListTechnician_confirm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_primary_filled"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="XÁC NHẬN"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.23"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <include
+        android:id="@+id/ll_no_internet"
+        android:visibility="gone"
+        layout="@layout/layout_no_internet" />
+
+</LinearLayout>

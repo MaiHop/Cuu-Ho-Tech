@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/ll_OrderRescueList"
+    android:background="@drawable/background_item_layout_service"
+    android:padding="7dp"
+    android:paddingEnd="15dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginBottom="10dp">
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/ic_car_gear"
+        app:tint="@color/gray_02_30" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name_"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gara - Q7"
+            android:textColor="@color/neutral_main"
+            android:textSize="16sp"
+            android:lineHeight="24dp"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:id="@+id/tv_address_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="123 Nguyễn Thị Thập, Tân Phong, Quận 7, tp.HCM"
+            android:textColor="@color/neutral_main"
+            android:textSize="14sp"
+            android:lineHeight="20dp"
+            android:letterSpacing="0.025"/>
+
+        <TextView
+            android:id="@+id/tv_date_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ngày đặt: 11 thg 07 2024, 09:09"
+            android:textColor="@color/color_text_search"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:lineHeight="16dp"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:id="@+id/tv_status_rescue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boder_radius_status_success"
+            android:text="Đã hoàn thành"
+            android:textColor="@color/success_main"
+            android:textSize="12sp"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/confirmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_primary_outline_enabled"
+            android:paddingStart="8dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="1dp"
+            android:text="Đã xác nhận"
+            android:textAllCaps="false"
+            android:textColor="@color/primary_main"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/processing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_warning_outline_pressed"
+            android:paddingStart="8dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="1dp"
+            android:text="Đang xử lý"
+            android:textAllCaps="false"
+            android:textColor="@color/warning_pressed"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/completed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_success_outline_enabled"
+            android:paddingStart="8dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="1dp"
+            android:text="Đã hoàn thành"
+            android:textAllCaps="false"
+            android:textColor="@color/success_main"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_danger_outline_enabled"
+            android:paddingStart="8dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="1dp"
+            android:text="Đã hủy"
+            android:textAllCaps="false"
+            android:textColor="@color/danger_main"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/button_orange_outline_enabled"
+            android:paddingStart="8dp"
+            android:paddingTop="1dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="1dp"
+            android:text="Đã gửi"
+            android:textAllCaps="false"
+            android:textColor="@color/orange"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="Biển số:"
+            android:textColor="@color/color_text_search"
+            android:textSize="12sp"
+            android:lineHeight="16dp"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:id="@+id/tv_license_plate_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="32A-012345"
+            android:textColor="@color/color_text_search"
+            android:textSize="12sp"
+            android:lineHeight="16dp"
+            android:letterSpacing="0.05"/>
+
+        <TextView
+            android:id="@+id/number_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="right"
+            android:text="3 dịch vụ"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:lineHeight="16dp"
+            android:letterSpacing="0.05"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="right"
+            android:text="2.000.000đ"
+            android:textColor="@color/success_main"
+            android:textSize="14sp"
+            android:lineHeight="16dp"
+            android:letterSpacing="0.05"/>
+    </LinearLayout>
+</LinearLayout>

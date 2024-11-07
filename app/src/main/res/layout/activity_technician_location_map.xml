@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Presentation.Activity.TechnicianLocationMapActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- MapView sẽ tràn viền -->
+        <org.osmdroid.views.MapView
+            android:id="@+id/map_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="false" />
+
+        <!-- Toolbar và các nút khác sẽ nổi trên MapView -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/AppTheme.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="4dp"
+            android:minHeight="?attr/actionBarSize">
+            <ImageButton
+                android:id="@+id/btn_TechnicianIsCom_close"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_gravity="start"
+                android:background="@drawable/background_circle"
+                android:src="@drawable/ic_back"
+                app:tint="@color/neutral_main" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:orientation="vertical"
+            android:padding="20dp"
+            >
+            <!--Danh sách các trạng thái-->
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_status_created_at"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/background_item_layout"
+                android:orientation="vertical">
+                <!--Trạng thái Đã tạo-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity=""
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_RequestDetail_Status_Radio_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_radio_button_checked"
+                            app:tint="@color/neutral_focus" />
+
+                        <LinearLayout
+                            android:id="@+id/iv_RequestDetail_Status_Line_1"
+                            android:layout_width="1dp"
+                            android:layout_height="32dp"
+                            android:background="@color/neutral_focus"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_TechnicianLocation_current_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="top|start"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:text="Vị trí của bạn"
+                            android:textColor="@color/neutral_main"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <ImageButton
+                            android:id="@+id/btn_TechnicianIsCom_swap"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/background_circle"
+                            android:src="@drawable/ic_swap"
+                            app:tint="@color/neutral_main" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--Trạng thái Đã gửi-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity=""
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_RequestDetail_Status_Radio_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_radio_button_checked"
+                            app:tint="@color/primary_main" />
+
+                        <LinearLayout
+                            android:id="@+id/iv_RequestDetail_Status_Line_2"
+                            android:layout_width="1dp"
+                            android:layout_height="32dp"
+                            android:background="@color/primary_main"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_TechnicianLocation_next_location"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|start"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:text="Vị trí của bạn"
+                            android:textColor="@color/primary_main"
+                            android:textSize="16sp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:id="@+id/tv_TechnicianLocation_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="top|start"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="16sp"
+                            android:text="Địa chỉ"
+                            android:textColor="@color/primary_main"
+                            android:textSize="12sp"
+                            android:textStyle="normal" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_center"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="130dp"
+            android:background="@drawable/ripple_effect_button"
+            android:contentDescription="btn map"
+            android:src="@drawable/ic_map_zoom" />
+    </FrameLayout>
+
+    <!-- Bottom Sheet Layouts -->
+    <include
+        android:id="@+id/ll_Techinician_is_coming"
+        layout="@layout/bottom_sheet_techinician_is_comming" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

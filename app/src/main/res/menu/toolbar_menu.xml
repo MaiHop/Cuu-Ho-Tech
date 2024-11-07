@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:title="Call_Phone"
+        android:id="@+id/call_phone"
+        android:icon="@drawable/ic_phone"
+        app:showAsAction="ifRoom"/>
+    <item android:title="!"
+        android:id="@+id/a"
+        android:icon="@drawable/ic_information_white"
+        app:showAsAction="ifRoom"/>
+</menu>

@@ -1,0 +1,57 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="start"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/background_messager_received_radius_top_left_bottom_left_right"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:id="@+id/tv_received_message_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Received message text"
+            android:textColor="@color/color_text_search"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right">
+            <TextView
+                android:id="@+id/tv_time_received_messager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10:32"
+                android:textColor="@color/color_text_search"
+                android:textSize="12sp"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:id="@+id/date_received_messager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 thg 8 2024"
+                android:textColor="@color/color_text_search"
+                android:textSize="12sp"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:id="@+id/tv_is_seen_messager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đã xem"
+                android:textColor="@color/color_text_search"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

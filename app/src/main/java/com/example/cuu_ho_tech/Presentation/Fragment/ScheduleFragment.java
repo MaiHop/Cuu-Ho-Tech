@@ -1,0 +1,39 @@
+package com.example.cuu_ho_tech.Presentation.Fragment;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.cuu_ho_tech.Domain.Response.StatusResponse;
+import com.example.cuu_ho_tech.Presentation.Adapter.ScheduleAdapter;
+import com.example.cuu_ho_tech.R;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ScheduleFragment extends Fragment {
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_order_schedule_list, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.rcv_order_schedule_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        List<StatusResponse> statusResponseList = Arrays.asList(
+                new StatusResponse("Đã hoàn thành"),
+                new StatusResponse("Đang xử lý")
+        );
+
+        ScheduleAdapter scheduleAdapter = new ScheduleAdapter(statusResponseList, getActivity());
+        recyclerView.setAdapter(scheduleAdapter);
+        return view;
+    }
+}

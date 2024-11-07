@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".Presentation.Activity.DetailUserActivity"
+    android:background="@color/white">
+<!--    toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_back"
+                android:background="@drawable/background_image_back_"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hồ sơ cá nhân"
+                android:textColor="@color/neutral_main"
+                android:textSize="22sp"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+<!--    content-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+<!--            image_avata-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <!-- Avatar Image -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_avata_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        app:cardCornerRadius="100dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/img_avatar_user"
+                            android:layout_width="84dp"
+                            android:layout_height="84dp"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/img_bg_detail_service"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.467"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cameraIconCard"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        app:cardElevation="4dp"
+                        app:cardCornerRadius="20dp"
+                        app:layout_constraintBottom_toBottomOf="@id/cv_avata_user"
+                        app:layout_constraintEnd_toEndOf="@id/cv_avata_user">
+
+                        <ImageView
+                            android:id="@+id/cameraIcon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_camera1"
+                            android:contentDescription="Camera Icon"
+                            android:padding="10dp"/>
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+<!--            detail content-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CustomTextInputLayout"
+                    android:id="@+id/edt_name_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tên của bạn"
+                    app:boxStrokeErrorColor="@color/danger_main"
+                    app:errorIconTint="@color/danger_main"
+                    app:errorTextColor="@color/danger_main"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:helperTextTextColor="@color/danger_main"
+                    app:boxBackgroundColor="@color/white"
+                    app:startIconDrawable="@drawable/ic_account">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CustomTextInputLayout"
+                    android:id="@+id/edt_email_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    app:boxStrokeErrorColor="@color/danger_main"
+                    app:errorIconTint="@color/danger_main"
+                    app:errorTextColor="@color/danger_main"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:helperTextTextColor="@color/danger_main"
+                    app:boxBackgroundColor="@color/white"
+                    app:startIconDrawable="@drawable/ic_email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textEmailSubject" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CustomTextInputLayout"
+                    android:id="@+id/edt_phone_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Số điện thoại"
+                    app:boxStrokeErrorColor="@color/danger_main"
+                    app:errorIconTint="@color/danger_main"
+                    app:errorTextColor="@color/danger_main"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:helperTextTextColor="@color/danger_main"
+                    app:boxBackgroundColor="@color/white"
+                    app:startIconDrawable="@drawable/ic_phone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="phone" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CustomTextInputLayout"
+                    android:id="@+id/edt_address_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Địa chỉ của bạn"
+                    app:boxStrokeErrorColor="@color/danger_main"
+                    app:errorIconTint="@color/danger_main"
+                    app:errorTextColor="@color/danger_main"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:helperTextTextColor="@color/danger_main"
+                    app:boxBackgroundColor="@color/white"
+                    app:startIconDrawable="@drawable/ic_location">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPersonName" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/CustomTextInputLayout"
+                    android:id="@+id/edt_password_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mật khẩu"
+                    app:errorEnabled="true"
+                    app:errorIconDrawable="@drawable/ic_error"
+                    app:helperTextTextColor="@color/danger_main"
+                    app:boxBackgroundColor="@color/white"
+                    app:endIconMode="password_toggle"
+                    app:startIconDrawable="@drawable/ic_password">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:gravity="center">
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_key"
+                        android:layout_marginRight="10dp"
+                        app:tint="@color/neutral_main" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Đổi mật khẩu"
+                        android:textSize="22sp"
+                        android:textColor="@color/neutral_main"
+                        android:gravity="left"
+                        android:layout_marginRight="10dp"/>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_arrow_right"
+                        android:gravity="right"
+                        app:tint="@color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+<!--    Buttom update-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_update_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button_primary_filled"
+            android:stateListAnimator="@animator/button_scale_state"
+            android:text="CẬP NHẬT"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </LinearLayout>
+
+</LinearLayout>

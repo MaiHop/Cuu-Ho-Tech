@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:drawable="@drawable/edit_otp_focused" />
+    <item android:state_activated="true" android:drawable="@drawable/button_danger_outline_enabled_10dp" />
+    <item android:drawable="@drawable/edt_otp_normal" />
+</selector>

@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:visibility="visible">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/custom_button_back"
+            android:contentDescription="image Back"
+            android:src="@drawable/ic_back" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/btn_back"
+            android:text="Tên kỹ thuật viên"
+            android:textColor="@color/gray_800"
+            android:textSize="24sp" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_phone"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/custom_button_back"
+            android:contentDescription="image Back"
+            android:src="@drawable/ic_phone" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_border_radius"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Thông tin chung"
+                    android:textColor="@color/gray_02_10"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/btn_copy_phone">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Số điện thoại:"
+                            android:textColor="@color/gray_02_10"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/phone_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:text="093456789"
+                            android:textColor="@color/color_schemes"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_copy_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_copy_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="5dp"
+                            android:text="Copy"
+                            android:textColor="@color/color_schemes"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ic_copy_phone"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/custom_button_back"
+                            android:src="@drawable/ic_copy" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/btn_copy_email">
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email:"
+                            android:textColor="@color/gray_02_10"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:text="kithuatvien@gmail.com"
+                            android:textColor="@color/color_schemes"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/btn_copy_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_copy_email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="5dp"
+                            android:text="Copy"
+                            android:textColor="@color/color_schemes"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ic_copy_email"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/custom_button_back"
+                            android:src="@drawable/ic_copy" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toStartOf="@+id/btn_copy_address">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Địa chỉ:"
+                            android:textColor="@color/gray_02_10"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toStartOf="@+id/btn_copy_address"
+                            android:layout_toEndOf="@+id/textView4"
+                            android:text="23 Trần Xuân Soạn. phường Tân Thuận Tây, Quận 7, Thành phố Hồ Chí Minh"
+                            android:textColor="@color/color_schemes"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/btn_copy_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_copy_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginEnd="5dp"
+                            android:text="Copy"
+                            android:textColor="@color/color_schemes"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ic_copy_address"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/custom_button_back"
+                            android:src="@drawable/ic_copy" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_border_radius"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Hoạt động"
+                        android:textColor="@color/gray_02_10"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/completed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|right"
+                        android:background="@drawable/button_success_outline_enabled"
+                        android:paddingStart="8dp"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="3dp"
+                        android:text="Hoạt động"
+                        android:textAllCaps="false"
+                        android:textColor="@color/success_main"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|right"
+                        android:background="@drawable/button_danger_outline_enabled"
+                        android:paddingStart="8dp"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="8dp"
+                        android:paddingBottom="3dp"
+                        android:text="Không hoạt động"
+                        android:textAllCaps="false"
+                        android:textColor="@color/danger_main"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trong Tuần:"
+                        android:textColor="@color/gray_02_10"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        app:flexWrap="wrap"
+                        app:justifyContent="flex_start">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/monday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/background_text_week"
+                            android:paddingStart="15dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="3dp"
+                            android:text="Thứ 2"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_main"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tuesday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/background_text_week"
+                            android:paddingStart="15dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="3dp"
+                            android:text="Thứ 3"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_main"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/wednesday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/background_text_week"
+                            android:paddingStart="15dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="3dp"
+                            android:text="Thứ 4"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_main"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/thursday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@drawable/background_text_week"
+                            android:paddingStart="15dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="3dp"
+                            android:text="Thứ 5"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_main"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/friday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/background_text_week"
+                            android:paddingStart="15dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="3dp"
+                            android:text="Thứ 6"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_main"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/saturday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/background_text_week"
+                            android:paddingStart="15dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="3dp"
+                            android:text="Thứ 7"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_main"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/sunday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/background_text_week"
+                            android:paddingStart="15dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="3dp"
+                            android:text="Chủ nhật"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_main"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+                    </com.google.android.flexbox.FlexboxLayout>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Khung giờ:"
+                        android:textColor="@color/gray_02_10"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="15dp"
+                        android:layout_toEndOf="@+id/textView8"
+                        android:text="09:00 - 22:00"
+                        android:textColor="@color/color_schemes"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_border_radius"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Khác"
+                    android:textColor="@color/gray_02_10"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/view9"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kĩ năng:"
+                        android:textColor="@color/gray_02_10"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/skill"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="Sửa xe siêu cấp vip pro’s, khả năng làm lốp dự phòng cho chị em "
+                        android:textColor="@color/color_schemes"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view12"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Chứng nhận:"
+                        android:textColor="@color/gray_02_10"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/certificate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="Michelin Boy xuất sắc năm 2023, kỷ lục 14 năm liên tiếp đạt danh hiệu Michelin Boy "
+                        android:textColor="@color/color_schemes"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+
+                <View
+                    android:id="@+id/view14"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Khu vực:"
+                        android:textColor="@color/gray_02_10"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="Thành phố Hồ Chí Minh"
+                        android:textColor="@color/color_schemes"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/background_border_radius"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center|left"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Đánh giá và nhận xét "
+                    android:textColor="@color/gray_02_10"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/neutral_light_border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/background_progressbar_radius_top_left_right"
+                        android:gravity="center|left"
+                        android:orientation="horizontal"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="5dp"
+                            android:src="@drawable/ic_car_star" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="999 đánh giá"
+                            android:textColor="@color/color_text_notification"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_progressbar_radius_bottom_left_right"
+                        android:gravity="center|left"
+                        android:orientation="vertical"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/fiveStar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="5"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                            <ProgressBar
+                                android:id="@+id/progressFiveStar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="90"
+                                android:progressTint="@android:color/holo_orange_light" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/fourStar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="4"
+                                android:textSize="12sp" />
+
+                            <ProgressBar
+                                android:id="@+id/progressFourStar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="90"
+                                android:progressTint="@android:color/holo_orange_light" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/threeStar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="3"
+                                android:textSize="12sp" />
+
+                            <ProgressBar
+                                android:id="@+id/progressThreeStar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="90"
+                                android:progressTint="@android:color/holo_orange_light" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/twoStar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="2"
+                                android:textSize="12sp" />
+
+                            <ProgressBar
+                                android:id="@+id/progressTwoStar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="90"
+                                android:progressTint="@android:color/holo_orange_light" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/oneStar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="1"
+                                android:textSize="12sp" />
+
+                            <ProgressBar
+                                android:id="@+id/progressOneStar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:max="100"
+                                android:progress="90"
+                                android:progressTint="@android:color/holo_orange_light" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btn_primary_icon_outline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/custom_button_primary_outline"
+                        android:drawableEnd="@drawable/ic_down"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/button_color_primary"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="8dp"
+                        android:stateListAnimator="@animator/button_scale_state"
+                        android:text="Mới nhất"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/button_color_primary"
+                        android:textSize="14sp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/btn_primary_icon_outline1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/custom_button_primary_outline"
+                        android:drawableEnd="@drawable/ic_down"
+                        android:drawablePadding="5dp"
+                        android:drawableTint="@color/button_color_primary"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="8dp"
+                        android:stateListAnimator="@animator/button_scale_state"
+                        android:text="Đánh giá cao nhất"
+                        android:textAllCaps="false"
+                        android:textColor="@color/button_color_primary"
+                        android:textSize="14sp" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rcv_complent_detail_service"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+

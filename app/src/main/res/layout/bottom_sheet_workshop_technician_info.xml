@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_bottom_sheet"
+    android:orientation="vertical"
+    android:id="@+id/ll_WorkshopTechnicianInfo"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="50dp">
+
+    <!--    sheet header-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <!--        Drag handle-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:backgroundTint="@color/neutral_main"
+            android:orientation="vertical"
+            app:cardCornerRadius="100dp" />
+
+    </LinearLayout>
+    <!--    label-text-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_Workshop_technician_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="start"
+            android:letterSpacing="0"
+            android:lineHeight="24sp"
+            android:text="Tên kĩ thuật viên"
+            android:textColor="@color/neutral_main"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+        <ImageButton
+            android:id="@+id/btn_TechnicianInfo_close"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@color/gray_02_100"
+            android:drawableTint="@drawable/button_text_color"
+            android:enabled="true"
+            android:padding="8dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_delete"
+            android:stateListAnimator="@animator/button_scale_state"
+            android:text="sfdfsdfsd"
+            android:textAllCaps="false"
+            android:textColor="@drawable/button_text_color"
+            android:textSize="14sp"
+            app:tint="@color/neutral_main" />
+    </LinearLayout>
+
+    <!--Trạng thái-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/neutral_light_border"
+            android:orientation="vertical" />
+        <!--        Trạng thái-->
+        <!--    state-layer-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!--        leading element-->
+            <LinearLayout
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="16dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_TechnicianItem_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_wrench_screwdriver"
+                    app:tint="@color/neutral_main" />
+            </LinearLayout>
+            <!--        content-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_Workshop_technician_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top"
+                    android:letterSpacing="0.05"
+                    android:lineHeight="24sp"
+                    android:text="Địa chỉ"
+                    android:textColor="@color/neutral_main"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_Workshop_technician_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top"
+                    android:letterSpacing="0.025"
+                    android:lineHeight="20sp"
+                    android:text="Số điện thoại"
+                    android:textColor="@color/neutral_main"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_Workshop_technician_day_of_week"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="top"
+                    android:letterSpacing="0.05"
+                    android:lineHeight="16sp"
+                    android:text="Hoạt động : T2 - T3 - T4 - T6 - CN"
+                    android:textColor="@color/neutral_main"
+                    android:textSize="12sp"
+                    android:textStyle="normal" />
+
+                <com.nex3z.flowlayout.FlowLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:flChildSpacing="10dp">
+
+                    <TextView
+                        android:id="@+id/tv_Workshop_technician_available_from"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="top"
+                        android:letterSpacing="0.05"
+                        android:lineHeight="16sp"
+                        android:text="Mở cửa lúc: 09:00"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+                    <TextView
+                        android:id="@+id/tv_Workshop_technician_available_to"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="top"
+                        android:letterSpacing="0.05"
+                        android:lineHeight="16sp"
+                        android:text="Đóng của lúc: 09:00"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+                </com.nex3z.flowlayout.FlowLayout>
+                <com.nex3z.flowlayout.FlowLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:flChildSpacing="auto"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+                        <TextView
+                            android:id="@+id/tv_Workshop_technician_review"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="top"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="16sp"
+                            android:text="Đánh giá: 4"
+                            android:textColor="@color/neutral_main"
+                            android:textSize="12sp"
+                            android:textStyle="normal" />
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_star_h"
+                            app:tint="@color/warning_main" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/tv_Workshop_technician_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/custom_button_success_outline"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="0dp"
+                        android:paddingRight="10dp"
+                        android:paddingBottom="0dp"
+                        android:stateListAnimator="@animator/button_scale_state"
+                        android:text="Hoạt động"
+                        android:textAllCaps="false"
+                        android:textColor="@color/button_color_success"
+                        android:lineHeight="16dp"
+                        android:letterSpacing="0.01"
+                        android:textSize="12sp" />
+                </com.nex3z.flowlayout.FlowLayout>
+            </LinearLayout>
+            <!--            trailing element-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_Workshop_choose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_button_primary_filled"
+                    android:paddingLeft="24dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="24dp"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@color/button_color_primary"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="Chọn"
+                    android:textAllCaps="false"
+                    android:textColor="@color/gray_02_100"
+                    android:lineHeight="16dp"
+                    android:letterSpacing="0.01"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="10dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_Workshop_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_button_primary_outline"
+                    android:paddingLeft="24dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="24dp"
+                    android:drawableStart="@drawable/ic_phone"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@color/button_color_primary"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="Gọi"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_primary"
+                    android:lineHeight="16dp"
+                    android:letterSpacing="0.01"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="10dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_Workshop_technician_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_button_primary_outline"
+                    android:paddingLeft="24dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingRight="24dp"
+                    android:drawableStart="@drawable/ic_info"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@color/button_color_primary"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="Chi tiết"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_primary"
+                    android:lineHeight="16dp"
+                    android:letterSpacing="0.01"
+                    android:textSize="14sp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

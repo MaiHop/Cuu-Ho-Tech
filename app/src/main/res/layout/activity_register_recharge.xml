@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.cuu_ho_tech.Custom.CustomConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/layout"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/custom_button_back"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="BƯỚC CUỐI CÙNG"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Vui lòng nạp tiền vào Ví tín dụng và điền số Tiền mặt của bạn trước khi sử dụng ứng dụng (Bắt buộc) "
+            android:textColor="@color/neutral_main"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ví tín dụng:"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/gray_02_10"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_money_layout"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                app:boxBackgroundColor="@color/white"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_card">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_money"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:maxLength="9"
+                    android:hint="Tiền đã nạp"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:id="@+id/btn_recharge"
+                android:layout_width="80dp"
+                android:layout_height="55dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/custom_button_primary_outline_40dp"
+                android:gravity="center"
+                android:stateListAnimator="@animator/button_scale_state">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/icon"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_add"
+                    android:textSize="14sp"
+                    android:tint="@color/button_color_primary" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:text="Nạp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_continue"
+        style="@style/CustomButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_button_background"
+        android:stateListAnimator="@animator/button_scale_state"
+        android:text="Tiếp Theo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</com.example.cuu_ho_tech.Custom.CustomConstraintLayout>
