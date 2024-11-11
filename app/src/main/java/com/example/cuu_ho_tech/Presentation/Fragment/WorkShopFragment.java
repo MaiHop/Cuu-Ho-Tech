@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.Objects;
 
 
-public class WorkShopFragment  extends Fragment {
+public class WorkShopFragment extends Fragment {
     FragmentWorkShopBinding binding;
     private ActivityResultLauncher<IntentSenderRequest> locationSettingsLauncher;
     private LocationHelper locationHelper;
@@ -54,26 +54,28 @@ public class WorkShopFragment  extends Fragment {
     BottomSheetListTechnicianWorkshopBinding bottomSheetListTechnicianWorkshopBinding;
     //Bottomsheet thông tin chi tiết thợ
     BottomSheetWorkshopTechnicianInfoBinding bottomSheetWorkshopTechnicianInfoBinding;
-    BottomSheetBehavior bsb_list_tech_workshop,bsb_tech_info_workshop;
+    BottomSheetBehavior bsb_list_tech_workshop, bsb_tech_info_workshop;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentWorkShopBinding.inflate(inflater, container, false);
         initialize();
         setupBottomSheet();
-//        binding.edtText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-////                Intent i = new Intent(SearchTechnicianActivity.this, ListTechnicianMapActivity.class);
-////                startActivity(i);
-//                testbottomsheet();
-//            }
-//        });
+
+        binding.edtText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent i = new Intent(SearchTechnicianActivity.this, ListTechnicianMapActivity.class);
+//                startActivity(i);
+                BottomSheetEvent();
+            }
+        });
         return binding.getRoot();
     }
 
     private void setupBottomSheet() {
         //Bottom sheet list thợ trong workshop
-        bottomSheetListTechnicianWorkshopBinding=BottomSheetListTechnicianWorkshopBinding.inflate(getLayoutInflater());
+        bottomSheetListTechnicianWorkshopBinding = BottomSheetListTechnicianWorkshopBinding.inflate(getLayoutInflater());
         bsb_list_tech_workshop = BottomSheetBehavior.from(binding.llListTechnicianWorkshop.llListTechnicianWorkshop);
         bsb_list_tech_workshop.setHideable(true);
         //Sử dụng post để đảm bảo layout hoàn tất trước khi thiết lập trạng thái
@@ -84,7 +86,7 @@ public class WorkShopFragment  extends Fragment {
             }
         });
         //Bottom sheet thông tin thợ trong workshop
-        bottomSheetWorkshopTechnicianInfoBinding=BottomSheetWorkshopTechnicianInfoBinding.inflate(getLayoutInflater());
+        bottomSheetWorkshopTechnicianInfoBinding = BottomSheetWorkshopTechnicianInfoBinding.inflate(getLayoutInflater());
         bsb_tech_info_workshop = BottomSheetBehavior.from(binding.llWorkshopTechnicianInfo.llWorkshopTechnicianInfo);
         binding.llWorkshopTechnicianInfo.llWorkshopTechnicianInfo.post(new Runnable() {
             @Override
@@ -92,21 +94,22 @@ public class WorkShopFragment  extends Fragment {
                 bsb_tech_info_workshop.setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
+        binding.llWorkshopTechnicianInfo.btnWorkshopChoose.setVisibility(View.GONE);
     }
 
-    private void testbottomsheet() {
+    private void BottomSheetEvent() {
         List<String> list = new ArrayList<>();
-        for(int i =0; i<=10;i++){
-            list.add("Tech "+i);
+        for (int i = 0; i <= 10; i++) {
+            list.add("Tech " + i);
         }
-        Log.d("LIST_TECH", ""+list.size());
+        Log.d("LIST_TECH", "" + list.size());
         //Hiển ds thợ trong rv của bottomsheet
-        TechnicianSearchAdapter adapter = new TechnicianSearchAdapter(requireActivity(),list, new ClickListener() {
+        TechnicianSearchAdapter adapter = new TechnicianSearchAdapter(getActivity(), list, new ClickListener() {
             @Override
             public void clickItem(String tech) {
                 //Hiển thị bottomsheet thông tin của thợ
                 bsb_list_tech_workshop.setState(BottomSheetBehavior.STATE_HIDDEN);
-                Toast.makeText(requireActivity(), tech, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), tech, Toast.LENGTH_SHORT).show();
                 //Sử dụng post để đảm bảo layout hoàn tất trước khi thiết lập trạng thái
                 binding.llListTechnicianWorkshop.llListTechnicianWorkshop.post(new Runnable() {
                     @Override
@@ -115,13 +118,13 @@ public class WorkShopFragment  extends Fragment {
                         binding.llWorkshopTechnicianInfo.btnWorkshopPhone.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(requireContext(),"Gọi bằng niềm tin", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Gọi bằng niềm tin", Toast.LENGTH_SHORT).show();
                             }
                         });
                         binding.llWorkshopTechnicianInfo.btnWorkshopTechnicianInfo.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(requireContext(),"Không có dữ liệu", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "Không có dữ liệu", Toast.LENGTH_SHORT).show();
                             }
                         });
                         bsb_tech_info_workshop.setState(BottomSheetBehavior.STATE_EXPANDED);
@@ -137,12 +140,10 @@ public class WorkShopFragment  extends Fragment {
                 });
             }
         });
-        binding.llListTechnicianWorkshop.rvListTechnician.setLayoutManager(new LinearLayoutManager(requireContext()));
+        binding.llListTechnicianWorkshop.rvListTechnician.setLayoutManager(new LinearLayoutManager(getActivity()));
         binding.llListTechnicianWorkshop.rvListTechnician.setAdapter(adapter);
 
         bsb_list_tech_workshop.setState(BottomSheetBehavior.STATE_EXPANDED);
-
-
     }
 
     private void initialize() {
@@ -173,9 +174,9 @@ public class WorkShopFragment  extends Fragment {
         });
         binding.edtText.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
-                if(!Objects.requireNonNull(binding.edtText.getText()).toString().isEmpty())
+                if (!Objects.requireNonNull(binding.edtText.getText()).toString().isEmpty())
                     binding.btnDelete.setVisibility(View.VISIBLE);
-            } else  {
+            } else {
                 DeviceUtils.hideKeyboard(v, requireContext());
                 binding.btnDelete.setVisibility(View.GONE);
             }
@@ -184,11 +185,12 @@ public class WorkShopFragment  extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
+
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!Objects.requireNonNull(binding.edtText.getText()).toString().isEmpty())
+                if (!Objects.requireNonNull(binding.edtText.getText()).toString().isEmpty())
                     binding.btnDelete.setVisibility(View.VISIBLE);
-                else  binding.btnDelete.setVisibility(View.GONE);
+                else binding.btnDelete.setVisibility(View.GONE);
                 sharedSearchServiceAndOrderViewModel.setTextActFromFra(s.toString());
             }
 
@@ -270,7 +272,7 @@ public class WorkShopFragment  extends Fragment {
                 {"auto mobile", "1"}
         };
         SearchServiceAndOrderAdapter adapter = new SearchServiceAndOrderAdapter(requireContext(), data);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext() , LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         binding.listSearch.setLayoutManager(layoutManager);
         binding.listSearch.setAdapter(adapter);
     }

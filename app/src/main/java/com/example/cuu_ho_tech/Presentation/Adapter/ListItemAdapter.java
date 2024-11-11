@@ -18,8 +18,8 @@ public class ListItemAdapter extends RecyclerView.Adapter<ItemViewHolder>{
     private List<String> list_item;
     private LayoutInflater minflater;
     private Context context;
-    private ClickListener clickListener;
-    public ListItemAdapter(Context context, List<String> list_item, ClickListener clickListener) {
+    private ClickListener.OnClickListItemListener clickListener;
+    public ListItemAdapter(Context context, List<String> list_item, ClickListener.OnClickListItemListener clickListener) {
         this.list_item = list_item;
         this.clickListener = clickListener;
         this.minflater = LayoutInflater.from(context);
@@ -43,12 +43,13 @@ public class ListItemAdapter extends RecyclerView.Adapter<ItemViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         String tech = list_item.get(position);
+        int p = position;
 
         holder.updateUI(tech);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickListener.clickItem(tech);
+                clickListener.onClick(tech, p);
             }
         });
     }

@@ -204,9 +204,6 @@
         android:id="@+id/ll_ListTechnicianSearch"
         layout="@layout/bottom_sheet_list_technician_search"/>
     <include
-        android:id="@+id/ll_ListRequestSort"
-        layout="@layout/bottom_sheet_list_request_sort"/>
-    <include
         android:id="@+id/ll_ListRequestFilter"
         layout="@layout/bottom_sheet_list_request_filter"/>
     <include
@@ -221,9 +218,6 @@
     <include
         android:id="@+id/ll_RemindGuest"
         layout="@layout/bottom_sheet_remind_guest"/>
-    <include
-        android:id="@+id/ll_ListRequestStatusFilter"
-        layout="@layout/bottom_sheet_list_technician_status_filter"/>
     <include
         android:id="@+id/ll_ListLocation"
         layout="@layout/bottom_sheet_list_location"/>

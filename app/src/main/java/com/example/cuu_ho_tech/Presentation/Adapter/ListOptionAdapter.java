@@ -21,11 +21,12 @@ public class ListOptionAdapter extends RecyclerView.Adapter<OptionViewHolder>{
     private List<String> list_option;
     private LayoutInflater minflater;
     private Context context;
-    private ClickListener clickListener;
+    private ClickListener.OnClickListItemListener clickListener;
     private int selectedPosition = RecyclerView.NO_POSITION;
-    public ListOptionAdapter(Context context, List<String> list_option, ClickListener clickListener) {
+    public ListOptionAdapter(Context context, List<String> list_option, int selectedPosition , ClickListener.OnClickListItemListener clickListener) {
         this.list_option = list_option;
         this.clickListener = clickListener;
+        this.selectedPosition = selectedPosition;
         this.minflater = LayoutInflater.from(context);
     }
 
@@ -68,7 +69,7 @@ public class ListOptionAdapter extends RecyclerView.Adapter<OptionViewHolder>{
                 notifyItemChanged(selectedPosition); // Làm mới item hiện tại
                 Log.d("ITEM", data);
 
-                clickListener.clickItem(data);
+                clickListener.onClick(data, p);
             }
         });
     }

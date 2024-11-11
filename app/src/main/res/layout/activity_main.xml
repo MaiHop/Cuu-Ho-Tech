@@ -27,7 +27,7 @@
             android:id="@+id/frame_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_marginBottom="56dp">
 
         </FrameLayout>
     </LinearLayout>
@@ -39,7 +39,8 @@
         android:layout_gravity="bottom"
         app:contentInsetStart="0dp"
         app:fabCradleMargin="10dp"
-        app:fabCradleRoundedCornerRadius="50dp">
+        app:fabCradleRoundedCornerRadius="50dp"
+        >
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_Navigation_View"
@@ -50,7 +51,9 @@
             app:itemIconTint="@color/bottom_nav_icon_color"
             app:itemTextColor="@color/bottom_nav_text_color"
             app:itemActiveIndicatorStyle="@style/App.Custom_Indicator"
-            app:menu="@menu/bottom_menu" />
+            app:menu="@menu/bottom_menu"
+            app:layout_anchor="@+id/bottomSheet"
+            app:layout_anchorGravity="bottom|end"/>
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
@@ -64,6 +67,7 @@
         android:src="@drawable/ic_float_btn"
         app:layout_anchor="@id/bottomAppBar"
         app:maxImageSize="60dp"
-        app:tint="@null" />
+        app:tint="@null"
+        android:elevation="4dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

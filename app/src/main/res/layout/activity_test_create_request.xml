@@ -10,67 +10,22 @@
     android:background="@color/primary_secondary"
     tools:context=".Test.Test_Create_Request_Activity">
 
-
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SHOW BOTTOM SHEET DIALOG" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ADD RadioButton" />
-    <RadioGroup
-        android:id="@+id/rg_ListRequestStatusFilter"
+    <TextView
+        android:id="@+id/tv_TechnicianLocation_current_location"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <RadioButton
-            android:id="@+id/rb_ListRequestStatusFilter_default"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
-            android:letterSpacing="0.05"
-            android:lineHeight="24sp"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
-            android:text="Mặc định"
-            android:textSize="16dp"
-            android:textStyle="normal" />
-        <RadioButton
-            android:id="@+id/rb_ListRequestStatusFilter_close"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:text="Đóng cửa"
-            android:textSize="16dp"
-            android:textStyle="normal"
-            android:letterSpacing="0.05"
-            android:lineHeight="24sp"/>
-        <RadioButton
-            android:id="@+id/rb_ListRequestStatusFilter_open"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableEnd="?android:attr/listChoiceIndicatorSingle"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:text="Hoạt động"
-            android:textSize="16dp"
-            android:textStyle="normal"
-            android:letterSpacing="0.05"
-            android:lineHeight="24sp"/>
-    </RadioGroup>
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="top|start"
+        android:letterSpacing="0.05"
+        android:lineHeight="24sp"
+        android:text="Vị trí của bạn"
+        android:textColor="@color/neutral_main"
+        android:textSize="16sp"
+        android:textStyle="normal" />
 </LinearLayout>

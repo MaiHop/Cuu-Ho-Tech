@@ -157,9 +157,11 @@
 
     <include
         android:id="@+id/ll_ListTechnicianWorkshop"
-        layout="@layout/bottom_sheet_list_technician_workshop" />
+        layout="@layout/bottom_sheet_list_technician_workshop"
+        />
 
     <include
         android:id="@+id/ll_WorkshopTechnicianInfo"
-        layout="@layout/bottom_sheet_workshop_technician_info" />
+        layout="@layout/bottom_sheet_workshop_technician_info"
+        />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -148,23 +148,137 @@
                             app:tint="@color/primary_main" />
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/background_confirm_cancellation_description"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:gravity="center">
+
+                    <RadioGroup
+                        android:id="@+id/rg_ListRequestSort"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <RadioButton
+                            android:id="@+id/rb_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="8dp"
+                            android:text="Đã tự giải quyết được vấn đề"
+                            android:textSize="16dp"
+                            android:textStyle="normal" />
+                        <RadioButton
+                            android:id="@+id/rb_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="8dp"
+                            android:text="Đã tìm được dịch vụ khác"
+                            android:textSize="16dp"
+                            android:textStyle="normal" />
+                        <RadioButton
+                            android:id="@+id/rb_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="8dp"
+                            android:text="Thời gian chờ đợi quá lâu"
+                            android:textSize="16dp"
+                            android:textStyle="normal" />
+                        <RadioButton
+                            android:id="@+id/rb_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="8dp"
+                            android:text="Không cần sửa chữa hoặc cứu hộ nữa"
+                            android:textSize="16dp"
+                            android:textStyle="normal" />
+                        <RadioButton
+                            android:id="@+id/rb_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="8dp"
+                            android:text="Chi phí không phù hợp"
+                            android:textSize="16dp"
+                            android:textStyle="normal" />
+                        <RadioButton
+                            android:id="@+id/rb_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="8dp"
+                            android:text="Thông tin sai lệch hoặc không hài lòng với dịch vụ"
+                            android:textSize="16dp"
+                            android:textStyle="normal" />
+                        <RadioButton
+                            android:id="@+id/rb_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:drawableStart="?android:attr/listChoiceIndicatorSingle"
+                            android:letterSpacing="0.05"
+                            android:lineHeight="24sp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="8dp"
+                            android:text="Khác"
+                            android:textSize="16dp"
+                            android:textStyle="normal" />
+                    </RadioGroup>
+
                     <!--Description-->
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/til_RequestDetail_description"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Lý do hủy đơn"
+                        android:hint="Viết lý do chi tiết tại đây"
                         app:boxStrokeColor="@color/gray_02_100"
                         app:boxStrokeWidth="0dp"
                         app:boxStrokeWidthFocused="0dp"

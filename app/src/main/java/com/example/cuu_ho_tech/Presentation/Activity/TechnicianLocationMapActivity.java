@@ -1,9 +1,11 @@
 package com.example.cuu_ho_tech.Presentation.Activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -15,6 +17,8 @@ import androidx.activity.result.IntentSenderRequest;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.cuu_ho_tech.Presentation.ViewModel.LocationHelper;
 import com.example.cuu_ho_tech.R;
@@ -27,6 +31,7 @@ import com.example.cuu_ho_tech.databinding.BottomSheetWorkshopTechnicianInfoBind
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 public class TechnicianLocationMapActivity extends AppCompatActivity {
+    private static final int REQUEST_CAL_CODE = 101;
     ActivityTechnicianLocationMapBinding binding;
     private ActivityResultLauncher<IntentSenderRequest> locationSettingsLauncher;
     private LocationHelper locationHelper;
@@ -73,6 +78,34 @@ public class TechnicianLocationMapActivity extends AppCompatActivity {
                 bsb_tech_is_coming.setState(BottomSheetBehavior.STATE_COLLAPSED);
             }
         });
+
+        binding.llTechinicianIsComing.btnTechnicianIsComTexting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(TechnicianLocationMapActivity.this, DetailMessageActivity.class);
+                startActivity(i);
+            }
+        });
+
+        binding.llTechinicianIsComing.btnTechnicianIsComPhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleCallPermission();
+            }
+        });
+    }
+
+    private void handleCallPermission() {
+        String phoneNumber = "0000000000";
+        Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+            // Nếu quyền đã được cấp, thực hiện cuộc gọi
+            startActivity(callIntent);
+        } else {
+            // Yêu cầu quyền CALL_PHONE nếu chưa được cấp
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CAL_CODE);
+        }
     }
 
     private void initialize() {
@@ -126,7 +159,17 @@ public class TechnicianLocationMapActivity extends AppCompatActivity {
                 Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show();
             }
         }
+
+        if (requestCode == REQUEST_CAL_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Nếu quyền được cấp, thực hiện cuộc gọi
+                handleCallPermission();
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CAL_CODE);
+            }
+        }
     }
+
 
 
     @Override

@@ -854,13 +854,14 @@
                                 android:enabled="true"
                                 android:padding="8dp"
                                 android:scaleType="center"
-                                android:src="@drawable/ic_calendar"
+                                android:src="@drawable/ic_calendar_24"
                                 android:stateListAnimator="@animator/button_scale_state"
                                 android:text="sfdfsdfsd"
                                 android:textAllCaps="false"
                                 android:textColor="@drawable/button_text_color"
                                 android:textSize="14sp"
-                                app:tint="@color/neutral_main" />
+                                app:tint="@color/neutral_main"
+                                android:contentDescription="Chọn ngày"/>
 
                         </GridLayout>
 
@@ -936,7 +937,8 @@
                                 android:textAllCaps="false"
                                 android:textColor="@drawable/button_text_color"
                                 android:textSize="14sp"
-                                app:tint="@color/neutral_main" />
+                                app:tint="@color/neutral_main"
+                                android:contentDescription="Chọn giờ"/>
                         </GridLayout>
 
                         <LinearLayout
@@ -1211,7 +1213,8 @@
                                     android:text="sfdfsdfsd"
                                     android:textAllCaps="false"
                                     android:textSize="14sp"
-                                    app:tint="@color/neutral_main" />
+                                    app:tint="@color/neutral_main"
+                                    android:contentDescription="Chụp ảnh"/>
                             </GridLayout>
                         </GridLayout>
                     </LinearLayout>
