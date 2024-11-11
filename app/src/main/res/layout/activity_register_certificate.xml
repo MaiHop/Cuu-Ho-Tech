@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.cuu_ho_tech.Custom.CustomConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/layout"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/custom_button_back"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="KHÁC"
+            android:textColor="@color/black"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Bổ sung thêm một vài thông tin liên quan đến chuyên ngành"
+            android:textColor="@color/neutral_main"
+            android:textSize="14sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/CustomTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                app:boxBackgroundColor="@color/white"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_skill"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:hint="Kỹ năng"
+                    android:inputType="text"
+                    android:maxLength="9" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edt_money_layout"
+                style="@style/CustomTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                app:boxBackgroundColor="@color/white"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_certification"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:hint="Chứng nhận"
+                    android:inputType="text"
+                    android:maxLength="9" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Khu vực cứu hộ của bạn"
+            android:textColor="@color/gray_02_10"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_city"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_border_radius_12dp"
+            android:drawableEnd="@drawable/ic_down_20dp"
+            android:drawableTint="@color/neutral_border"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:stateListAnimator="@animator/button_scale_state"
+            android:text="Tỉnh/Thành"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="@color/neutral_border"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_district"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_border_radius_12dp"
+            android:drawableEnd="@drawable/ic_down_20dp"
+            android:drawableTint="@color/neutral_border"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:stateListAnimator="@animator/button_scale_state"
+            android:text="Quận/Huyện"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="@color/neutral_border"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_ward"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/background_border_radius_12dp"
+            android:drawableEnd="@drawable/ic_down_20dp"
+            android:drawableTint="@color/neutral_border"
+            android:paddingStart="15dp"
+            android:paddingEnd="10dp"
+            android:stateListAnimator="@animator/button_scale_state"
+            android:text="Phượng/Xã"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textColor="@color/neutral_border"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_continue"
+        style="@style/CustomButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_button_background"
+        android:stateListAnimator="@animator/button_scale_state"
+        android:text="Tiếp Theo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</com.example.cuu_ho_tech.Custom.CustomConstraintLayout>

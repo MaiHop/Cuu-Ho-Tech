@@ -10,6 +10,7 @@ import android.view.inputmethod.InputMethodManager;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cuu_ho_tech.Utils.DeviceUtils;
 import com.example.cuu_ho_tech.databinding.ActivityRegisterRechargeBinding;
 
 import java.text.DecimalFormat;
@@ -33,7 +34,7 @@ public class RegisterRechargeActivity  extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     binding.edtMoney.clearFocus();
-                    hideKeyboard(v);
+                    DeviceUtils.hideKeyboard(v, RegisterRechargeActivity.this);
                     v.performClick();
                     return true;
                 }
@@ -70,13 +71,5 @@ public class RegisterRechargeActivity  extends AppCompatActivity {
         long number = Long.parseLong(value);
         DecimalFormat formatter = new DecimalFormat("#,###");
         return formatter.format(number) + "đ";
-    }
-
-
-    private void hideKeyboard(View view) {
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
     }
 }
