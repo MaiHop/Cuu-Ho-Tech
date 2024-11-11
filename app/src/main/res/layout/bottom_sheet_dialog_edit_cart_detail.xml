@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_BottomSheetDialogEdit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_bottom_sheet"
+    android:orientation="vertical"
+    android:padding="20dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+    <!--    sheet header-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <!--        Drag handle-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="32dp"
+            android:layout_height="4dp"
+            android:backgroundTint="@color/neutral_main"
+            android:orientation="vertical"
+            app:cardCornerRadius="100dp" />
+
+    </LinearLayout>
+    <!--    label-text-->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:letterSpacing="0"
+        android:lineHeight="24sp"
+        android:paddingBottom="12dp"
+        android:text="Tiêu đề"
+        android:textColor="@color/neutral_main"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/neutral_light_border"
+        android:orientation="vertical" />
+    <!--    Tìm kiếm và danh sách kĩ thuật viên-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingTop="0dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="0dp">
+        <!--       Tạo ScrollView-->
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp">
+            <!--Wrapper các thành phần trong danh sách-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--Danh sách các thành phần danh sách-->
+                <LinearLayout
+                    android:id="@+id/ll_ListItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+                    <!--Item chi tiết giỏ hàng -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/ll_service_request_detail"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:orientation="horizontal">
+
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:rowCount="1"
+                            android:columnCount="3"
+                            >
+                            <LinearLayout
+                                android:layout_columnWeight="1"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:id="@+id/tv_service_request_detail_name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="top"
+                                    android:lineHeight="24sp"
+                                    android:letterSpacing="0.05"
+                                    android:text="Sửa xe"
+                                    android:textColor="@color/neutral_main"
+                                    android:textSize="16sp"
+                                    android:textStyle="normal"
+                                    />
+                                <TextView
+                                    android:id="@+id/tv_service_request_detail_warranty"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="top"
+                                    android:lineHeight="20sp"
+                                    android:letterSpacing="0"
+                                    android:text="Bảo hành"
+                                    android:textColor="@color/neutral_main"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/tv_service_request_detail_quantity"
+                                android:layout_width="2dp"
+                                android:layout_columnWeight="1"
+                                android:layout_weight="1"
+                                android:gravity="top|center"
+                                android:lineHeight="24sp"
+                                android:letterSpacing="0.05"
+                                android:text="1"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="normal"/>
+
+
+                            <GridLayout
+                                android:rowCount="2"
+                                android:columnCount="1"
+                                android:layout_columnWeight="1">
+
+                                <TextView
+                                    android:id="@+id/tv_service_request_detail_sv_price"
+                                    android:layout_columnWeight="1"
+                                    android:gravity="top|end"
+                                    android:lineHeight="16sp"
+                                    android:letterSpacing="0.05"
+                                    android:text="2.000.000đ"
+                                    android:textColor="@color/success_main"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal"
+                                    android:layout_marginBottom="10dp"/>
+                                <TextView
+                                    android:id="@+id/tv_service_request_detail_privce"
+                                    android:layout_columnWeight="1"
+                                    android:gravity="top|end"
+                                    android:lineHeight="16sp"
+                                    android:letterSpacing="0.05"
+                                    android:text="2.000.000đ"
+                                    android:textColor="@color/success_main"
+                                    android:textSize="14sp"
+                                    android:textStyle="normal" />
+                            </GridLayout>
+                        </GridLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/neutral_light_border"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:rowCount="1"
+                android:columnCount="2"
+                >
+                <LinearLayout
+                    android:layout_rowWeight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lineHeight="24sp"
+                        android:letterSpacing="0.0"
+                        android:text="Số lượng: "
+                        android:textColor="@color/neutral_main"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+
+                <GridLayout
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:rowCount="1"
+                    android:columnCount="3"
+                    android:layout_gravity="end"
+                    android:layout_width="wrap_content">
+                    <ImageButton
+                        android:id="@+id/btn_minus"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/custom_button_ripple"
+                        android:contentDescription="Minus"
+                        android:src="@drawable/ic_minus"
+                        android:layout_gravity="center"
+                        />
+                    <EditText
+                        android:id="@+id/tv_current_quantity"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:paddingLeft="2dp"
+                        android:paddingRight="2dp"
+                        android:background="@drawable/background_stroke_1_rad_4"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:lineHeight="24dp"
+                        android:letterSpacing="0"
+                        android:textStyle="bold"
+                        tools:ignore="LabelFor"
+                        android:text="123"/>
+                    <ImageButton
+                        android:id="@+id/btn_add"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/custom_button_ripple"
+                        android:contentDescription="Add"
+                        android:src="@drawable/ic_add"
+                        android:layout_gravity="center"/>
+                </GridLayout>
+            </GridLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/neutral_light_border"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="0dp"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_btn_gr_state_complete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_PositiveButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_primary_filled"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="Xác nhận"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

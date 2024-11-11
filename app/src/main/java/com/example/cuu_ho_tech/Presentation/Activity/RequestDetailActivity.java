@@ -353,7 +353,7 @@ public class RequestDetailActivity extends AppCompatActivity {
                 materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
                     @Override
                     public void onPositiveButtonClick(Long selection) {
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd 'thg' MM, yyyy", new Locale("vi"));
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd 'thg' MM yyyy", new Locale("vi"));
                         String formattedDate = dateFormat.format(new Date(selection));
 
                         binding.edtRequestDetailDateRequestAtPicker.setText(formattedDate);

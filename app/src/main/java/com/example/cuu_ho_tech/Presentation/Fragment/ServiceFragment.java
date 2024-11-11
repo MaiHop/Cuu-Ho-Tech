@@ -15,28 +15,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cuu_ho_tech.Domain.Response.ServiceResponse;
 import com.example.cuu_ho_tech.Presentation.Adapter.ServiceAdapter;
 import com.example.cuu_ho_tech.R;
+import com.example.cuu_ho_tech.databinding.FragmentOrderServiceListBinding;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class ServiceFragment extends Fragment {
-    Button btn_created_service;
+    FragmentOrderServiceListBinding binding;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_order_service_list, container, false);
-        RecyclerView recyclerView = view.findViewById(R.id.rcv_order_service_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        btn_created_service = view.findViewById(R.id.btn_created_service);
+        binding = FragmentOrderServiceListBinding.inflate(inflater, container, false);
+        binding.rcvOrderServiceList.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         List<ServiceResponse> serviceResponseList = Arrays.asList(
                 new ServiceResponse("Service 1", "Description 1", 100),
                 new ServiceResponse("Service 2", "Description 2", 200),
                 new ServiceResponse("Service 3", "Description 3", 300)
         );
-        ServiceAdapter serviceAdapter = new ServiceAdapter(serviceResponseList, getActivity(), btn_created_service);
-        recyclerView.setAdapter(serviceAdapter);
+        ServiceAdapter serviceAdapter = new ServiceAdapter(serviceResponseList, getActivity(),getActivity().getSupportFragmentManager(), binding.btnCreatedService);
+        binding.rcvOrderServiceList.setAdapter(serviceAdapter);
 
-        return view;
+        return binding.getRoot();
     }
 }

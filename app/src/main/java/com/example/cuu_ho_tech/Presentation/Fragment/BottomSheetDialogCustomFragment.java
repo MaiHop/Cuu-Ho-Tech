@@ -10,6 +10,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.cuu_ho_tech.Presentation.Adapter.ListItemAdapter;
@@ -46,6 +47,7 @@ public class BottomSheetDialogCustomFragment extends BottomSheetDialogFragment i
     //List option
     private ListOptionAdapter adapter_option;
     private BottomSheetInterface.OnClickListListener ListOptionListener;
+    private int selectedPosition;
 
     //Search
     private boolean isSearch = false;
@@ -82,7 +84,16 @@ public class BottomSheetDialogCustomFragment extends BottomSheetDialogFragment i
         return this;
     }
 
-    public BottomSheetDialogCustomFragment setListOption(List<String> list_data, BottomSheetInterface.OnClickListListener onClickListener) {
+    public BottomSheetDialogCustomFragment setListOption(List<String> list_data,int selectedPosition, BottomSheetInterface.OnClickListListener onClickListener) {
+        if (selectedPosition >= list_data.size()) {
+            Log.e("BottomSheetDialogCustomFragment", "selectedPosition exceeds the size of the list >=" + list_data.size());
+            throw new IllegalStateException("selectedPosition exceeds the size of the list >=" + list_data.size());
+        } else if (selectedPosition < 0) {
+            this.selectedPosition = -1;
+        } else {
+            this.selectedPosition = selectedPosition;
+        }
+
         this.ListOptionListener = onClickListener;
         this.list_data_origin = list_data;
         return this;
@@ -97,7 +108,6 @@ public class BottomSheetDialogCustomFragment extends BottomSheetDialogFragment i
         this.isSearch = true;
         return this;
     }
-
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
@@ -147,10 +157,10 @@ public class BottomSheetDialogCustomFragment extends BottomSheetDialogFragment i
         if (ListItemListener != null) {
             binding.llListItem.setVisibility(View.VISIBLE);
             binding.rvListItem.setVisibility(View.VISIBLE);
-            adapter_item = new ListItemAdapter(context, list_data_origin, new ClickListener() {
+            adapter_item = new ListItemAdapter(context, list_data_origin, new ClickListener.OnClickListItemListener() {
                 @Override
-                public void clickItem(String tech) {
-                    ListItemListener.onClick(BottomSheetDialogCustomFragment.this, tech);
+                public void onClick(String data, int position) {
+                    ListItemListener.onClick(BottomSheetDialogCustomFragment.this, data, position);
                 }
             });
             binding.rvListItem.setLayoutManager(new LinearLayoutManager(context));
@@ -160,10 +170,10 @@ public class BottomSheetDialogCustomFragment extends BottomSheetDialogFragment i
         if (ListOptionListener != null) {
             binding.llListOption.setVisibility(View.VISIBLE);
             binding.rvListOption.setVisibility(View.VISIBLE);
-            adapter_option= new ListOptionAdapter(context, list_data_origin, new ClickListener() {
+            adapter_option= new ListOptionAdapter(context, list_data_origin, selectedPosition, new ClickListener.OnClickListItemListener() {
                 @Override
-                public void clickItem(String tech) {
-                    ListOptionListener.onClick(BottomSheetDialogCustomFragment.this, tech);
+                public void onClick(String data, int position) {
+                    ListOptionListener.onClick(BottomSheetDialogCustomFragment.this, data, position);
                 }
             });
             binding.rvListOption.setLayoutManager(new LinearLayoutManager(context));
@@ -195,6 +205,11 @@ public class BottomSheetDialogCustomFragment extends BottomSheetDialogFragment i
     @Override
     public void dismiss() {
         super.dismiss();
+    }
+
+    @Override
+    public void show(FragmentManager manager, String tag) {
+        super.show(manager, tag);
     }
 
     public void dismissBottomSheet() {

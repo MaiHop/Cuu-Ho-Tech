@@ -8,14 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuu_ho_tech.R;
+import com.example.cuu_ho_tech.databinding.ItemOrderServiceListBinding;
 
 public class ServiceViewHolder extends RecyclerView.ViewHolder {
-
+    public ItemOrderServiceListBinding binding;
     public TextView tv_name_service, tv_price_service;
     public CheckBox cb_service;
 
-    public ServiceViewHolder(@NonNull View itemView) {
-        super(itemView);
+    public ServiceViewHolder(ItemOrderServiceListBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
         init();
     }
 

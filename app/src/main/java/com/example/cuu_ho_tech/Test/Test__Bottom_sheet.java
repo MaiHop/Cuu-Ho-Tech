@@ -38,8 +38,6 @@ public class Test__Bottom_sheet extends AppCompatActivity {
     BottomSheetRequestCreateBinding bottomSheetRequestCreateBinding;
     //Bottom sheet danh sách kĩ thuật viên trên mapview
     BottomSheetListTechnicianSearchBinding bottomSheetListTechnicianSearchBinding;
-    //Bottom sheet sắp xếp đơn
-    BottomSheetListRequestSortBinding bottomSheetListRequestSortBinding;
     //Bottom sheet lọc đơn
     BottomSheetListRequestFilterBinding bottomSheetListRequestFilterBinding;
     //Bottom sheet thợ đang tới trong map view
@@ -50,14 +48,13 @@ public class Test__Bottom_sheet extends AppCompatActivity {
     BottomSheetWorkshopTechnicianInfoBinding bottomSheetWorksopTechnicianInfoBinding;
     //Bottom sheet nhắc nhở đăng nhập đăng ký
     BottomSheetRemindGuestBinding bottomSheetRemindGuestBinding;
-    //Bottom sheet lọc thợ theo trạng thái
-    BottomSheetListTechnicianStatusFilterBinding bottomSheetListTechnicianStatusFilterBinding;
     //Bottom sheet danh sách tỉnh thành quận huyện
     BottomSheetListLocationBinding bottomSheetListLocationBinding;
     BottomSheetBehavior bsb_reqquest_create, bsb_list_tech_search,
-    bsb_tech_is_comming, bsb_list_tech_workshop, bsb_tech_info_mapview;
+            bsb_tech_is_comming, bsb_list_tech_workshop, bsb_tech_info_mapview;
     BottomSheetDialog bsb_request_sort,bsb_request_filter,bsb_remind_guest,
             bsb_list_tech_status_filter,bsb_list_location;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,23 +70,19 @@ public class Test__Bottom_sheet extends AppCompatActivity {
         //Bottom sheet tạo đơn cứu hộ
         bottomSheetRequestCreateBinding =BottomSheetRequestCreateBinding.inflate(getLayoutInflater());
         //Bottom sheet danh sách kĩ thuật viên trên mapview
-         bottomSheetListTechnicianSearchBinding =BottomSheetListTechnicianSearchBinding.inflate(getLayoutInflater());
-        //Bottom sheet sắp xếp đơn
-         bottomSheetListRequestSortBinding=BottomSheetListRequestSortBinding.inflate(getLayoutInflater());
+        bottomSheetListTechnicianSearchBinding =BottomSheetListTechnicianSearchBinding.inflate(getLayoutInflater());
         //Bottom sheet lọc đơn
-         bottomSheetListRequestFilterBinding=BottomSheetListRequestFilterBinding.inflate(getLayoutInflater());
+        bottomSheetListRequestFilterBinding=BottomSheetListRequestFilterBinding.inflate(getLayoutInflater());
         //Bottom sheet thợ đang tới trong map view
-         bottomSheetTechinicianIsCommingBinding=BottomSheetTechinicianIsCommingBinding.inflate(getLayoutInflater());
+        bottomSheetTechinicianIsCommingBinding=BottomSheetTechinicianIsCommingBinding.inflate(getLayoutInflater());
         //Bottom sheet list thợ trong workshop
-         bottomSheetListTechnicianWorkshopBinding=BottomSheetListTechnicianWorkshopBinding.inflate(getLayoutInflater());
+        bottomSheetListTechnicianWorkshopBinding=BottomSheetListTechnicianWorkshopBinding.inflate(getLayoutInflater());
         //Bottom sheet thông tin thợ trong map view
-         bottomSheetWorksopTechnicianInfoBinding=BottomSheetWorkshopTechnicianInfoBinding.inflate(getLayoutInflater());
+        bottomSheetWorksopTechnicianInfoBinding=BottomSheetWorkshopTechnicianInfoBinding.inflate(getLayoutInflater());
         //Bottom sheet nhắc nhở đăng nhập đăng ký
-         bottomSheetRemindGuestBinding=BottomSheetRemindGuestBinding.inflate(getLayoutInflater());
-        //Bottom sheet lọc thợ theo trạng thái
-         bottomSheetListTechnicianStatusFilterBinding=BottomSheetListTechnicianStatusFilterBinding.inflate(getLayoutInflater());
+        bottomSheetRemindGuestBinding=BottomSheetRemindGuestBinding.inflate(getLayoutInflater());
         //Bottom sheet danh sách tỉnh thành quận huyện
-         bottomSheetListLocationBinding=BottomSheetListLocationBinding.inflate(getLayoutInflater());
+        bottomSheetListLocationBinding=BottomSheetListLocationBinding.inflate(getLayoutInflater());
 
 
         //Bottom sheet tạo đơn cứu hộ
@@ -109,9 +102,6 @@ public class Test__Bottom_sheet extends AppCompatActivity {
         });
 
         binding.llListTechnicianSearch.rvListTechnician.setAdapter(adapter);
-        //Bottom sheet sắp xếp đơn
-        bsb_request_sort = new BottomSheetDialog(Test__Bottom_sheet.this);
-        bsb_request_sort.setContentView(bottomSheetListRequestSortBinding.getRoot().getRootView());
 
         //Bottom sheet lọc đơn
         bsb_request_filter = new BottomSheetDialog(Test__Bottom_sheet.this);
@@ -125,9 +115,6 @@ public class Test__Bottom_sheet extends AppCompatActivity {
         //Bottom sheet nhắc nhở đăng nhập đăng ký
         bsb_remind_guest = new BottomSheetDialog(Test__Bottom_sheet.this);
         bsb_remind_guest.setContentView(bottomSheetRemindGuestBinding.getRoot().getRootView());
-        //Bottom sheet lọc thợ theo trạng thái
-        bsb_list_tech_status_filter = new BottomSheetDialog(Test__Bottom_sheet.this);
-        bsb_list_tech_status_filter.setContentView(bottomSheetListTechnicianStatusFilterBinding.getRoot().getRootView());
         //Bottom sheet danh sách tỉnh thành quận huyện
         bsb_list_location = new BottomSheetDialog(Test__Bottom_sheet.this);
         bsb_list_location.setContentView(bottomSheetListLocationBinding.getRoot().getRootView());
@@ -180,6 +167,13 @@ public class Test__Bottom_sheet extends AppCompatActivity {
                 }else {
                     bsb_request_filter.show();
                 }
+            }
+        });
+
+        bottomSheetListRequestFilterBinding.btnPositiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(Test__Bottom_sheet.this,"OKOK", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -236,6 +230,8 @@ public class Test__Bottom_sheet extends AppCompatActivity {
                 }
             }
         });
+
+
 
         binding.btnTestListLocationSearch.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Test_Create_Request_Activity extends AppCompatActivity{
+
     ActivityTestCreateRequestBinding binding;
 
     @Override
@@ -48,27 +49,30 @@ public class Test_Create_Request_Activity extends AppCompatActivity{
         }
         Log.d("LIST_TECH", ""+list.size());
 
-        binding.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Random random = new Random();
-
-                RadioButton radioButton = new RadioButton(Test_Create_Request_Activity.this);
-                radioButton.setId(random.nextInt());
-                RadioGroup.LayoutParams childParam1 = new RadioGroup.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1f);
-                childParam1.setMarginEnd(2);
-                radioButton.setGravity(Gravity.CENTER);
-                radioButton.setLayoutParams(childParam1);
-                radioButton.setBackground(null);
-                radioButton.setText("Test");
-                radioButton.setTextColor(ContextCompat.getColor(Test_Create_Request_Activity.this, R.color.neutral_main));
-                radioButton.setBackgroundColor(ContextCompat.getColor(Test_Create_Request_Activity.this, R.color.gray_02_100));
-                radioButton.setButtonDrawable(null);
-                binding.rgListRequestStatusFilter.addView(radioButton, childParam1);
-
-            }
-        });
-
+//        bs_DialogFragment = new BottomSheetDialogOrderFilterFragment(Test_Create_Request_Activity.this)
+//                .setNegativeButton("Button 1", new BottomSheetInterface.OnClickFilterListener() {
+//                    @Override
+//                    public void onClick(BottomSheetInterface bottomsheet, List<String> list_status, String date_from, String date_to) {
+//                        String status ="";
+//                        for(String t : list_status){
+//                            status += t +" ";
+//                        }
+//                        status += date_from +" " + date_to;
+//                        binding.tvTechnicianLocationCurrentLocation.setText(status);
+//                    }
+//                })
+//                .setPositiveButton("Button 2", new BottomSheetInterface.OnClickFilterListener() {
+//                    @Override
+//                    public void onClick(BottomSheetInterface bottomsheet, List<String> list_status, String date_from, String date_to) {
+//                        String status ="";
+//                        for(String t : list_status){
+//                            status += t +" ";
+//                        }
+//                        status += date_from +" " + date_to;
+//                        binding.tvTechnicianLocationCurrentLocation.setText(status);
+//                        bottomsheet.dismiss();
+//                    }
+//                });
         binding.button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,30 +94,22 @@ public class Test_Create_Request_Activity extends AppCompatActivity{
 //
 //                AlertDialog dialog = builder.create();
 //                dialog.show();
-                BottomSheetDialogCustomFragment bs_DialogFragment = new BottomSheetDialogCustomFragment(Test_Create_Request_Activity.this)
-                        .setTitle("Test")
-                        .setMessage("Test")
-                        .setNegativeButton("Button 1", new BottomSheetInterface.OnClickListener() {
-                            @Override
-                            public void onClick(BottomSheetInterface bottomsheet) {
-                                bottomsheet.dismiss();
-                            }
-                        })
-                        .setPositiveButton("Button 2", new BottomSheetInterface.OnClickListener() {
-                            @Override
-                            public void onClick(BottomSheetInterface bottomsheet) {
-                                Toast.makeText(Test_Create_Request_Activity.this,"OKOK",Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .setListOption(list, new BottomSheetInterface.OnClickListListener() {
-                            @Override
-                            public void onClick(BottomSheetInterface bottomsheet, String data) {
-                                Toast.makeText(Test_Create_Request_Activity.this,data,Toast.LENGTH_SHORT).show();
-//                                bottomsheet.dismiss();
-                            }
-                        });
 
-                bs_DialogFragment.show(getSupportFragmentManager(), bs_DialogFragment.getTag());
+
+
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                // Kiểm tra nếu đã tồn tại instance của BottomSheetDialogOrderFilterFragment
+//                BottomSheetDialogOrderFilterFragment existingFragment =
+//                        (BottomSheetDialogOrderFilterFragment) fragmentManager.findFragmentByTag("BottomSheetOrderFilter");
+//
+//                if (existingFragment == null) {
+//                    // Nếu chưa có thì tạo mới và hiển thị
+//                    bs_DialogFragment = new BottomSheetDialogOrderFilterFragment(Test_Create_Request_Activity.this);
+//                    bs_DialogFragment.show(fragmentManager, "BottomSheetOrderFilter");
+//                } else {
+//                    // Nếu đã tồn tại, dùng lại instance đó
+//                    existingFragment.show(fragmentManager, "BottomSheetOrderFilter");
+//                }
             }
         });
     }

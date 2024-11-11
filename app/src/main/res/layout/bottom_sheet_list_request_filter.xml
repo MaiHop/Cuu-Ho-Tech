@@ -11,14 +11,14 @@
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
     android:background="@drawable/background_bottom_sheet">
 
-<!--    sheet header-->
+    <!--    sheet header-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
         android:gravity="center">
-<!--        Drag handle-->
+        <!--        Drag handle-->
         <androidx.cardview.widget.CardView
             android:layout_width="32dp"
             android:layout_height="4dp"
@@ -27,7 +27,7 @@
             app:cardCornerRadius="100dp"/>
 
     </LinearLayout>
-<!--    label-text-->
+    <!--    label-text-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:textColor="@color/neutral_main"
         android:textSize="24sp"
         android:textStyle="bold"
-         />
+        />
     <!--Form lọc-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +54,7 @@
             android:layout_marginBottom="10dp"
             android:background="@color/neutral_light_border"
             android:orientation="vertical" />
-<!--        Trạng thái-->
+        <!--        Trạng thái-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -86,81 +86,83 @@
                 app:flChildSpacing="auto"
                 app:flRowSpacing="15dp">
                 <androidx.appcompat.widget.AppCompatToggleButton
-                    android:id="@+id/tb_ListRequestFilter_created_at"
+                    android:id="@+id/tb_ListRequestFilter_saved"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_primary_outline"
+                    android:background="@drawable/custom_togglebutton_primary_outline"
                     android:stateListAnimator="@animator/button_scale_state"
-                    android:textOn="Nháp"
-                    android:textOff="Nháp"
+                    android:textOn="Đã lưu"
+                    android:textOff="Đã lưu"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_color_primary"
+                    android:textColor="@color/selector_toggle_button_text_color"
                     android:textSize="14sp" />
                 <androidx.appcompat.widget.AppCompatToggleButton
-                    android:id="@+id/tb_ListRequestFilter_request_at"
+                    android:id="@+id/tb_ListRequestFilter_sent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_primary_outline"
+                    android:background="@drawable/custom_togglebutton_primary_outline"
                     android:stateListAnimator="@animator/button_scale_state"
                     android:textOn="Đã gửi"
                     android:textOff="Đã gửi"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_color_primary"
+                    android:textColor="@color/selector_toggle_button_text_color"
                     android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatToggleButton
-                    android:id="@+id/tb_ListRequestFilter_confirm_at"
+                    android:id="@+id/tb_ListRequestFilter_confirmed_at"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_primary_outline"
+                    android:background="@drawable/custom_togglebutton_primary_outline"
                     android:stateListAnimator="@animator/button_scale_state"
                     android:textOn="Đã xác nhận"
                     android:textOff="Đã xác nhận"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_color_primary"
+                    android:textColor="@color/selector_toggle_button_text_color"
                     android:textSize="14sp" />
+
                 <androidx.appcompat.widget.AppCompatToggleButton
-                    android:id="@+id/tb_ListRequestFilter_updated_at"
+                    android:id="@+id/tb_ListRequestFilter_in_progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_primary_outline"
+                    android:background="@drawable/custom_togglebutton_primary_outline"
                     android:stateListAnimator="@animator/button_scale_state"
                     android:textOn="Đang xử lý"
                     android:textOff="Đang xử lý"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_color_primary"
+                    android:textColor="@color/selector_toggle_button_text_color"
                     android:textSize="14sp" />
+
                 <androidx.appcompat.widget.AppCompatToggleButton
-                    android:id="@+id/tb_ListRequestFilter_completed_at"
+                    android:id="@+id/tb_ListRequestFilter_completed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_primary_outline"
+                    android:background="@drawable/custom_togglebutton_primary_outline"
                     android:stateListAnimator="@animator/button_scale_state"
                     android:textOn="Đã hoàn thành"
                     android:textOff="Đã hoàn thành"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_color_primary"
+                    android:textColor="@color/selector_toggle_button_text_color"
                     android:textSize="14sp" />
+
                 <androidx.appcompat.widget.AppCompatToggleButton
-                    android:id="@+id/tb_ListRequestFilter_cancel_at"
+                    android:id="@+id/tb_ListRequestFilter_cancelled"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_primary_outline"
+                    android:background="@drawable/custom_togglebutton_primary_outline"
                     android:stateListAnimator="@animator/button_scale_state"
                     android:textOn="Đã hủy"
                     android:textOff="Đã hủy"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_color_primary"
+                    android:textColor="@color/selector_toggle_button_text_color"
                     android:textSize="14sp" />
 
             </com.nex3z.flowlayout.FlowLayout>
 
         </LinearLayout>
-<!--        Trạng thái-->
+        <!--        Trạng thái-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="22dp"
             android:orientation="vertical"
             android:padding="10dp">
             <!--Tiêu đề-->
@@ -210,7 +212,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:hint="Chọn ngày"
                     android:layout_marginTop="20dp"
                     app:boxBackgroundColor="@color/white"
                     app:boxStrokeColor="@color/gray_02_100"
@@ -225,20 +226,20 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_ListRequestFilter_date_from"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="Chọn ngày"
                         android:clickable="false"
-                        android:enabled="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
-                        android:gravity="right"
+                        android:gravity="right|center"
                         android:inputType="text"
                         android:padding="0dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageButton
                     android:id="@+id/btn_ListRequestFilter_date_from_picker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
                     android:background="@drawable/button_calendar_time"
@@ -246,13 +247,14 @@
                     android:enabled="true"
                     android:padding="8dp"
                     android:scaleType="center"
-                    android:src="@drawable/ic_calendar"
+                    android:src="@drawable/ic_calendar_24"
                     android:stateListAnimator="@animator/button_scale_state"
                     android:text="sfdfsdfsd"
                     android:textAllCaps="false"
                     android:textColor="@drawable/button_text_color"
                     android:textSize="14sp"
-                    app:tint="@color/neutral_main" />
+                    app:tint="@color/neutral_main"
+                    android:contentDescription="Chọn ngày bắt đầu" />
 
             </GridLayout>
             <!--Từ ngày-->
@@ -283,7 +285,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1"
-                    android:hint="Chọn ngày"
                     android:layout_marginTop="20dp"
                     app:boxBackgroundColor="@color/white"
                     app:boxStrokeColor="@color/gray_02_100"
@@ -298,20 +299,20 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edt_ListRequestFilter_date_to"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="Chọn ngày"
                         android:clickable="false"
-                        android:enabled="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
-                        android:gravity="right"
+                        android:gravity="right|center"
                         android:inputType="text"
                         android:padding="0dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageButton
                     android:id="@+id/btn_ListRequestFilter_date_to_picker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:adjustViewBounds="true"
                     android:background="@drawable/button_calendar_time"
@@ -319,13 +320,14 @@
                     android:enabled="true"
                     android:padding="8dp"
                     android:scaleType="center"
-                    android:src="@drawable/ic_calendar"
+                    android:src="@drawable/ic_calendar_24"
                     android:stateListAnimator="@animator/button_scale_state"
                     android:text="sfdfsdfsd"
                     android:textAllCaps="false"
                     android:textColor="@drawable/button_text_color"
                     android:textSize="14sp"
-                    app:tint="@color/neutral_main" />
+                    app:tint="@color/neutral_main"
+                    android:contentDescription="Chọn ngày kết thúc" />
 
             </GridLayout>
         </LinearLayout>
@@ -350,9 +352,9 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_ListRequestFilter_reset"
+                    android:id="@+id/btn_NegativeButton"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/custom_button_primary_outline"
@@ -369,9 +371,9 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_ListRequestFilter_filter"
+                    android:id="@+id/btn_PositiveButton"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_weight="1"
                     android:background="@drawable/custom_button_primary_filled"
                     android:stateListAnimator="@animator/button_scale_state"
