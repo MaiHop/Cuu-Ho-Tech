@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_transaction_history"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="0dp"
+    android:paddingTop="10dp"
+    android:paddingRight="0dp"
+    android:paddingBottom="10dp">
+
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="1"
+        android:rowCount="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top"
+                android:letterSpacing="0.05"
+                android:lineHeight="16sp"
+                android:text="12 thg 02 2024 10:00"
+                android:textColor="@color/neutral_main"
+                android:textSize="12sp"
+                android:textStyle="normal" />
+            <TextView
+                android:id="@+id/tv_transaction_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="top|end"
+                android:letterSpacing="0.05"
+                android:lineHeight="16sp"
+                android:text="+2.000.000VNĐ"
+                android:textColor="@color/success_main"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:letterSpacing="0"
+            android:lineHeight="16sp"
+            android:text="Rút tiền qua ngân hàng"
+            android:textColor="@color/neutral_main"
+            android:textSize="14sp"
+            android:textStyle="normal" />
+    </GridLayout>
+
+</LinearLayout>

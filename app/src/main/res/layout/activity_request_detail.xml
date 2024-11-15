@@ -45,6 +45,7 @@
             android:visibility="visible"/>
     </androidx.appcompat.widget.Toolbar>
 
+
     <!--Chứa Nội dung chi tiết đơn và Nhóm button-->
     <RelativeLayout
         android:id="@+id/rl_RequestDetail"
@@ -129,7 +130,7 @@
                                     android:gravity="top"
                                     android:letterSpacing="0.05"
                                     android:lineHeight="24sp"
-                                    android:text="Đã tạo"
+                                    android:text="Đơn mới"
                                     android:textColor="@color/neutral_main"
                                     android:textSize="16sp"
                                     android:textStyle="normal" />
@@ -185,81 +186,6 @@
                                         android:textSize="12sp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
-
-                            </LinearLayout>
-                            <!--Trạng thái Đã gửi-->
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity=""
-                                android:orientation="horizontal"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:gravity="top"
-                                    android:letterSpacing="0.05"
-                                    android:lineHeight="24sp"
-                                    android:text="Đã gửi"
-                                    android:textColor="@color/neutral_main"
-                                    android:textSize="16sp"
-                                    android:textStyle="normal" />
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="center"
-                                    android:orientation="vertical">
-
-                                    <ImageView
-                                        android:id="@+id/iv_RequestDetail_Status_Radio_2"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:src="@drawable/ic_radio_button_checked"
-                                        app:tint="@color/neutral_focus" />
-
-                                    <LinearLayout
-                                        android:id="@+id/iv_RequestDetail_Status_Line_2"
-                                        android:layout_width="1dp"
-                                        android:layout_height="32dp"
-                                        android:background="@color/neutral_focus"
-                                        android:orientation="vertical" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/tv_RequestDetail_Date_request_at"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="top|end"
-                                        android:letterSpacing="0.05"
-                                        android:lineHeight="16sp"
-                                        android:text="--/--/--"
-                                        android:textColor="@color/neutral_main"
-                                        android:textSize="12sp"
-                                        android:textStyle="bold" />
-
-                                    <TextView
-                                        android:id="@+id/tv_RequestDetail_Time_request_at"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="top|end"
-                                        android:letterSpacing="0.05"
-                                        android:lineHeight="16sp"
-                                        android:text="--:--"
-                                        android:textColor="@color/neutral_main"
-                                        android:textSize="12sp"
-                                        android:textStyle="bold" />
-                                </LinearLayout>
-
 
                             </LinearLayout>
                             <!--Trạng thái Đã xác nhận-->
@@ -639,19 +565,37 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
+                            android:orientation="horizontal"
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:letterSpacing="0"
                                 android:lineHeight="24sp"
                                 android:text="Dịch vụ"
                                 android:textColor="@color/neutral_main"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btn_RequestDetail_AddService"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:background="@color/gray_02_100"
+                                android:drawableEnd="@drawable/ic_add"
+                                android:drawablePadding="-20dp"
+                                android:drawableTint="@color/neutral_main"
+                                android:gravity="center"
+                                android:stateListAnimator="@animator/button_scale_state"
+                                android:text="Thêm"
+                                android:textAllCaps="false"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:lineHeight="24dp"
+                                android:textStyle="bold"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -668,6 +612,17 @@
                             tools:listitem="@layout/item_service_request_detail">
 
                         </androidx.recyclerview.widget.RecyclerView>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_RequestDetail_Update"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/custom_button_primary_outline"
+                            android:stateListAnimator="@animator/button_scale_state"
+                            android:text="Cập nhật dịch vụ"
+                            android:textAllCaps="false"
+                            android:textColor="@color/button_color_primary"
+                            android:textSize="14sp" />
                     </LinearLayout>
                     <!--Tạo đơn-->
                     <LinearLayout
@@ -861,7 +816,8 @@
                                 android:textColor="@drawable/button_text_color"
                                 android:textSize="14sp"
                                 app:tint="@color/neutral_main"
-                                android:contentDescription="Chọn ngày"/>
+                                android:contentDescription="Chọn ngày"
+                                android:visibility="gone"/>
 
                         </GridLayout>
 
@@ -938,7 +894,8 @@
                                 android:textColor="@drawable/button_text_color"
                                 android:textSize="14sp"
                                 app:tint="@color/neutral_main"
-                                android:contentDescription="Chọn giờ"/>
+                                android:contentDescription="Chọn giờ"
+                                android:visibility="gone"/>
                         </GridLayout>
 
                         <LinearLayout
@@ -946,7 +903,7 @@
                             android:layout_height="1dp"
                             android:background="@color/neutral_light_border"
                             android:orientation="vertical" />
-                        <!--Kĩ thuật viên-->
+                        <!--Khách hàng-->
                         <GridLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -963,14 +920,14 @@
                                 android:gravity="center"
                                 android:letterSpacing="0"
                                 android:lineHeight="24sp"
-                                android:text="Kĩ thuật viên:"
+                                android:text="Khách hàng:"
                                 android:textColor="@color/neutral_main"
 
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
                             <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_RequestDetail_technician"
+                                android:id="@+id/til_RequestDetail_customer"
                                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                                 android:layout_rowWeight="0"
                                 android:layout_columnWeight="1"
@@ -986,10 +943,67 @@
                                 app:helperTextTextColor="@color/danger_main">
 
                                 <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/edt_RequestCreate_technician"
+                                    android:id="@+id/edt_RequestCreate_customer"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Chọn kĩ thuật viên"
+                                    android:text="Tên khách hàng"
+                                    android:focusable="false"
+                                    android:focusableInTouchMode="false"
+                                    android:gravity="right"
+                                    android:inputType="text"
+                                    android:padding="0dp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </GridLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/neutral_light_border"
+                            android:orientation="vertical" />
+                        <!--Số điện thoại-->
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:columnCount="3"
+                            android:gravity="center|top"
+                            android:paddingTop="10dp"
+                            android:rowCount="1">
+
+                            <TextView
+                                android:layout_row="0"
+                                android:layout_rowWeight="0"
+                                android:layout_column="0"
+                                android:layout_columnWeight="0"
+                                android:gravity="center"
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="Số điện thoại:"
+                                android:textColor="@color/neutral_main"
+
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/til_RequestDetail_phone"
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                                android:layout_rowWeight="0"
+                                android:layout_columnWeight="1"
+                                android:padding="0dp"
+                                app:boxBackgroundColor="@color/white"
+                                app:boxStrokeColor="@color/gray_02_100"
+                                app:boxStrokeWidth="0dp"
+                                app:boxStrokeWidthFocused="0dp"
+                                app:errorEnabled="true"
+                                app:errorIconDrawable="@drawable/ic_error"
+                                app:errorIconTint="@color/danger_main"
+                                app:errorTextColor="@color/danger_main"
+                                app:helperTextTextColor="@color/danger_main">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edt_RequestCreate_phone"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="0987654321"
                                     android:focusable="false"
                                     android:focusableInTouchMode="false"
                                     android:gravity="right"
@@ -998,14 +1012,14 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <ImageView
-                                android:id="@+id/btn_RequestDetail_technician_picker"
+                                android:id="@+id/btn_RequestDetail_call"
                                 android:layout_width="24dp"
                                 android:layout_height="24dp"
                                 android:layout_gravity="top"
                                 android:drawablePadding="5dp"
                                 android:layout_marginTop="4dp"
                                 android:enabled="true"
-                                android:src="@drawable/ic_arrow_right"
+                                android:src="@drawable/ic_phone"
                                 android:stateListAnimator="@animator/button_scale_state"
                                 app:tint="@color/neutral_main" />
                         </GridLayout>
@@ -1076,7 +1090,8 @@
                                 android:enabled="true"
                                 android:src="@drawable/ic_arrow_right"
                                 android:stateListAnimator="@animator/button_scale_state"
-                                app:tint="@color/neutral_main" />
+                                app:tint="@color/neutral_main"
+                                android:visibility="gone"/>
                         </GridLayout>
 
                         <LinearLayout
@@ -1086,6 +1101,7 @@
                             android:orientation="vertical" />
                         <!--Biển số xe-->
                         <GridLayout
+                            android:id="@+id/gl_RequestDetail_license_plate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:columnCount="3"
@@ -1198,23 +1214,6 @@
                                         android:src="@drawable/image_place_holder" />
 
                                 </androidx.cardview.widget.CardView>
-
-                                <ImageButton
-                                    android:id="@+id/btn_RequestDetail_takephoto"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_gravity="center_vertical"
-                                    android:background="@color/gray_02_100"
-                                    android:drawablePadding="5dp"
-                                    android:enabled="true"
-                                    android:padding="8dp"
-                                    android:src="@drawable/ic_image_add"
-                                    android:stateListAnimator="@animator/button_scale_state"
-                                    android:text="sfdfsdfsd"
-                                    android:textAllCaps="false"
-                                    android:textSize="14sp"
-                                    app:tint="@color/neutral_main"
-                                    android:contentDescription="Chụp ảnh"/>
                             </GridLayout>
                         </GridLayout>
                     </LinearLayout>
@@ -1244,68 +1243,103 @@
 
 
             <LinearLayout
-                android:id="@+id/ll_RequestDetail_group_all"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:visibility="visible"
-                    android:id="@+id/btn_RequestDetail_Cancel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/custom_button_danger_outline"
-                    android:stateListAnimator="@animator/button_scale_state"
-                    android:text="HỦY ĐƠN"
-                    android:textAllCaps="false"
-                    android:textColor="@color/button_color_danger"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/ll_RequestDetail_group_booking"
+                android:id="@+id/ll_RequestDetail_group_sent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_RequestDetail_Save"
+                    android:id="@+id/btn_RequestDetail_cancel_1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/custom_button_primary_outline"
+                    android:background="@drawable/custom_button_danger_outline"
                     android:stateListAnimator="@animator/button_scale_state"
-                    android:text="LƯU ĐƠN"
+                    android:text="TỪ CHỐI"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_color_primary"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.23"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+                    android:textColor="@color/button_color_danger"
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_RequestDetail_Booking"
+                    android:id="@+id/btn_RequestDetail_confirm"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/custom_button_primary_filled"
                     android:stateListAnimator="@animator/button_scale_state"
-                    android:text="ĐẶT LỊCH"
+                    android:text="XÁC NHẬN"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.23"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_group_confirmed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_RequestDetail_cancel_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_danger_outline"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="HỦY ĐƠN"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_danger"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_RequestDetail_handle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_primary_filled"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="XỬ LÝ"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_RequestDetail_group_in_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_RequestDetail_cancel_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_danger_outline"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="HỦY ĐƠN"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_color_danger"
+                    android:textSize="14sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_RequestDetail_complete"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/custom_button_success_filled"
+                    android:stateListAnimator="@animator/button_scale_state"
+                    android:text="HOÀN THÀNH"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
             </LinearLayout>
 
             <LinearLayout
@@ -1315,41 +1349,29 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_RequestDetail_review"
+                    android:id="@+id/btn_RequestDetail_confirm_payment"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:layout_weight="1"
-                    android:background="@drawable/custom_button_primary_outline"
+                    android:background="@drawable/custom_button_success_outline"
                     android:stateListAnimator="@animator/button_scale_state"
-                    android:text="ĐÁNH GIÁ"
+                    android:text="ĐÃ THANH TOÁN"
                     android:textAllCaps="false"
-                    android:textColor="@color/button_color_primary"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.23"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+                    android:textColor="@color/button_color_success"
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_RequestDetail_pay"
+                    android:id="@+id/btn_RequestDetail_call_customer"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/custom_button_primary_filled"
                     android:stateListAnimator="@animator/button_scale_state"
-                    android:text="THANH TOÁN"
+                    android:text="LIÊN HỆ KHÁCH"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.23"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    android:textSize="14sp"/>
             </LinearLayout>
 
         </LinearLayout>

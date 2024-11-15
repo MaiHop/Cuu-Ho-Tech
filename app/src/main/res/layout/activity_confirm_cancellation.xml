@@ -62,7 +62,7 @@
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:layout_marginBottom="30dp"
-                android:text="Vui lòng liên hệ kĩ thuật viên để hủy đơn"
+                android:text="Vui lòng liên hệ khách hàng để hủy đơn"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:titleTextColor="@color/gray_02_10"
@@ -108,7 +108,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:letterSpacing="0.05"
-                                android:text="Tên kĩ thuật viên"
+                                android:text="Tên kĩ khách"
                                 android:textSize="16sp"
                                 android:textStyle="normal" />
 
@@ -173,11 +173,7 @@
                             android:drawableStart="?android:attr/listChoiceIndicatorSingle"
                             android:letterSpacing="0.05"
                             android:lineHeight="24sp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="8dp"
-                            android:paddingRight="16dp"
-                            android:paddingBottom="8dp"
-                            android:text="Đã tự giải quyết được vấn đề"
+                            android:text="Lịch trình quá tải"
                             android:textSize="16dp"
                             android:textStyle="normal" />
                         <RadioButton
@@ -188,11 +184,7 @@
                             android:drawableStart="?android:attr/listChoiceIndicatorSingle"
                             android:letterSpacing="0.05"
                             android:lineHeight="24sp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="8dp"
-                            android:paddingRight="16dp"
-                            android:paddingBottom="8dp"
-                            android:text="Đã tìm được dịch vụ khác"
+                            android:text="Vấn đề về phương tiện"
                             android:textSize="16dp"
                             android:textStyle="normal" />
                         <RadioButton
@@ -203,11 +195,7 @@
                             android:drawableStart="?android:attr/listChoiceIndicatorSingle"
                             android:letterSpacing="0.05"
                             android:lineHeight="24sp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="8dp"
-                            android:paddingRight="16dp"
-                            android:paddingBottom="8dp"
-                            android:text="Thời gian chờ đợi quá lâu"
+                            android:text="Xung đột với khách hàng"
                             android:textSize="16dp"
                             android:textStyle="normal" />
                         <RadioButton
@@ -218,11 +206,7 @@
                             android:drawableStart="?android:attr/listChoiceIndicatorSingle"
                             android:letterSpacing="0.05"
                             android:lineHeight="24sp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="8dp"
-                            android:paddingRight="16dp"
-                            android:paddingBottom="8dp"
-                            android:text="Không cần sửa chữa hoặc cứu hộ nữa"
+                            android:text="Thiếu linh kiện hoặc dụng cụ cần thiết"
                             android:textSize="16dp"
                             android:textStyle="normal" />
                         <RadioButton
@@ -233,11 +217,7 @@
                             android:drawableStart="?android:attr/listChoiceIndicatorSingle"
                             android:letterSpacing="0.05"
                             android:lineHeight="24sp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="8dp"
-                            android:paddingRight="16dp"
-                            android:paddingBottom="8dp"
-                            android:text="Chi phí không phù hợp"
+                            android:text="Yêu cầu của khách hàng không phù hợp"
                             android:textSize="16dp"
                             android:textStyle="normal" />
                         <RadioButton
@@ -248,11 +228,7 @@
                             android:drawableStart="?android:attr/listChoiceIndicatorSingle"
                             android:letterSpacing="0.05"
                             android:lineHeight="24sp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="8dp"
-                            android:paddingRight="16dp"
-                            android:paddingBottom="8dp"
-                            android:text="Thông tin sai lệch hoặc không hài lòng với dịch vụ"
+                            android:text="Lý do sức khỏe cá nhân"
                             android:textSize="16dp"
                             android:textStyle="normal" />
                         <RadioButton
@@ -263,10 +239,6 @@
                             android:drawableStart="?android:attr/listChoiceIndicatorSingle"
                             android:letterSpacing="0.05"
                             android:lineHeight="24sp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="8dp"
-                            android:paddingRight="16dp"
-                            android:paddingBottom="8dp"
                             android:text="Khác"
                             android:textSize="16dp"
                             android:textStyle="normal" />

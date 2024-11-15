@@ -50,7 +50,9 @@
                 android:text="Tên kĩ thuật viên"
                 android:textColor="@color/neutral_main"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end"/>
             <TextView
                 android:id="@+id/tv_TechnicianItem_address"
                 android:layout_width="match_parent"
@@ -62,7 +64,9 @@
                 android:textSize="14sp"
                 android:text="210/23/12 Quang Trung, phường Phú Mỹ, Quận 7, tp.Hồ Chí Mình"
                 android:textColor="@color/neutral_main"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"/>
             <TextView
                 android:id="@+id/tv_TechnicianItem_available_from_available_to"
                 android:layout_width="match_parent"
@@ -83,10 +87,12 @@
                 android:gravity="top"
                 android:letterSpacing="0.05"
                 android:lineHeight="16sp"
-                android:text="Khu vực làm việc: "
+                android:text="Thành phố Hồ Chí Minh - Quận 7 - phường Phú Thuận"
                 android:textColor="@color/neutral_main"
                 android:textSize="12sp"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                android:maxLines="2"
+                android:ellipsize="end"/>
 
         </LinearLayout>
         <!--            trailing element-->

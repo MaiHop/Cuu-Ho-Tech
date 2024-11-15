@@ -9,17 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cuu_ho_tech.Presentation.ViewHolder.ItemViewHolder;
+import com.example.cuu_ho_tech.Presentation.ViewHolder.RequestWatchOrderViewHolder;
 import com.example.cuu_ho_tech.Utils.ClickListener;
 import com.example.cuu_ho_tech.databinding.ItemListBinding;
+import com.example.cuu_ho_tech.databinding.ItemRequestWatchOrderBinding;
 
 import java.util.List;
 
-public class ListItemAdapter extends RecyclerView.Adapter<ItemViewHolder>{
+public class RequestWatchOrderAdapter extends RecyclerView.Adapter<RequestWatchOrderViewHolder>{
     private List<String> list_item;
     private LayoutInflater minflater;
     private Context context;
     private ClickListener.OnClickListItemListener clickListener;
-    public ListItemAdapter(Context context, List<String> list_item, ClickListener.OnClickListItemListener clickListener) {
+    public RequestWatchOrderAdapter(Context context, List<String> list_item, ClickListener.OnClickListItemListener clickListener) {
         this.list_item = list_item;
         this.clickListener = clickListener;
         this.minflater = LayoutInflater.from(context);
@@ -32,16 +34,16 @@ public class ListItemAdapter extends RecyclerView.Adapter<ItemViewHolder>{
 
     @NonNull
     @Override
-    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RequestWatchOrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
-        ItemListBinding binding = ItemListBinding.inflate(inflater, parent, false);
+        ItemRequestWatchOrderBinding binding = ItemRequestWatchOrderBinding.inflate(inflater, parent, false);
 
-        return new ItemViewHolder(binding);
+        return new RequestWatchOrderViewHolder(binding);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RequestWatchOrderViewHolder holder, int position) {
         String tech = list_item.get(position);
         int p = position;
 

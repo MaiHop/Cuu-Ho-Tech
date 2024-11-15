@@ -406,54 +406,8 @@ public class RequestDetailActivity extends AppCompatActivity {
             }
         });
 
-        //Button chuyển sang trang ds Tech
-        binding.btnRequestDetailTechnicianPicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(RequestDetailActivity.this, ListTechnicianActivity.class);
-                startActivity(i);
-            }
-        });
-
-        //Chọn phượng thức thanh toán
-        binding.btnRequestDetailPaymentMethodPicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(RequestDetailActivity.this, PaymentMethodActivity.class);
-                startActivity(i);
-            }
-        });
-        binding.edtRequestDetailPaymentMethod.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(RequestDetailActivity.this, PaymentMethodActivity.class);
-                startActivity(i);
-            }
-        });
-
-        //EditText chuyển sang trang ds Tech
-        binding.edtRequestCreateTechnician.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(RequestDetailActivity.this, ListTechnicianActivity.class);
-                startActivity(i);
-            }
-        });
-
-        //Chụp ảnh
-        binding.btnRequestDetailTakephoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ActivityCompat.checkSelfPermission(RequestDetailActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(RequestDetailActivity.this, new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-                } else {
-                    launchCamera();
-                }
-            }
-        });
-
-        //Đặt lịch
-        binding.btnRequestDetailBooking.setOnClickListener(new View.OnClickListener() {
+        //Xác nhận
+        binding.btnRequestDetailConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
@@ -489,8 +443,8 @@ public class RequestDetailActivity extends AppCompatActivity {
             }
         });
 
-        //Lưu đơn
-        binding.btnRequestDetailSave.setOnClickListener(new View.OnClickListener() {
+        //Xử lý
+        binding.btnRequestDetailHandle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
@@ -526,16 +480,16 @@ public class RequestDetailActivity extends AppCompatActivity {
             }
         });
 
-        //Thanh toán
-        binding.btnRequestDetailReview.setOnClickListener(new View.OnClickListener() {
+        //Hoàn thành
+        binding.btnRequestDetailComplete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Show dialog QR code
             }
         });
 
-        //Đánh giá
-        binding.btnRequestDetailReview.setOnClickListener(new View.OnClickListener() {
+        //Liên hệ khách
+        binding.btnRequestDetailCallCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(RequestDetailActivity.this, ReviewActivity.class);
@@ -544,7 +498,81 @@ public class RequestDetailActivity extends AppCompatActivity {
         });
 
         //Hủy đơn
-        binding.btnRequestDetailCancel.setOnClickListener(new View.OnClickListener() {
+        binding.btnRequestDetailCancel1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+                    if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+                        btnRequestDetailCancel_Event();
+                    } else {
+                        CustomDialog dialog = new CustomDialog();
+                        dialog.setType(CustomDialog.DISCONNECT)
+                                .setTitle("Lỗi")
+                                .setText("Không có kết nối Internet?")
+                                .setTextBtn("ĐÓNG")
+                                .setTextBtnOutline("THỬ LẠI")
+                                .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
+                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+                                    @Override
+                                    public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
+                                        super.onViewReadyTwoBtn(btn, btnOutline);
+                                        btn.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                btnRequestDetailCancel_Event();
+                                            }
+                                        });
+                                        btnOutline.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                dialog.cancel();
+                                            }
+                                        });
+                                    }
+                                });
+                        dialog.show(getSupportFragmentManager(), "CustomDialog");
+                    }
+                }
+            }
+        });
+        binding.btnRequestDetailCancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+                    if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+                        btnRequestDetailCancel_Event();
+                    } else {
+                        CustomDialog dialog = new CustomDialog();
+                        dialog.setType(CustomDialog.DISCONNECT)
+                                .setTitle("Lỗi")
+                                .setText("Không có kết nối Internet?")
+                                .setTextBtn("ĐÓNG")
+                                .setTextBtnOutline("THỬ LẠI")
+                                .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
+                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+                                    @Override
+                                    public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
+                                        super.onViewReadyTwoBtn(btn, btnOutline);
+                                        btn.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                btnRequestDetailCancel_Event();
+                                            }
+                                        });
+                                        btnOutline.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                dialog.cancel();
+                                            }
+                                        });
+                                    }
+                                });
+                        dialog.show(getSupportFragmentManager(), "CustomDialog");
+                    }
+                }
+            }
+        });
+        binding.btnRequestDetailCancel3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
@@ -604,20 +632,12 @@ public class RequestDetailActivity extends AppCompatActivity {
 
     private void updateStatus(LinearLayout linearLayout, TextView textView, String status) {
         switch (status) {
-            case "Đã tạo":
+            case "Đơn mới":
                 linearLayout.setBackgroundResource(R.drawable.background_request_detail_state_sent);
                 textView.setTextColor(ContextCompat.getColor(RequestDetailActivity.this, R.color.primary_main));
                 binding.tvRequestDetailStatus.setText(status);
                 binding.ivRequestDetailStatusRadio1.setColorFilter(ContextCompat.getColor(this, R.color.primary_main));
                 binding.ivRequestDetailStatusLine1.setBackgroundColor(ContextCompat.getColor(RequestDetailActivity.this, R.color.primary_main));
-                binding.ivRequestDetailPhotoConfirm.setVisibility(View.GONE);
-                break;
-            case "Đã gửi":
-                linearLayout.setBackgroundResource(R.drawable.background_request_detail_state_sent);
-                textView.setTextColor(ContextCompat.getColor(RequestDetailActivity.this, R.color.primary_main));
-                binding.tvRequestDetailStatus.setText(status);
-                binding.ivRequestDetailStatusRadio2.setColorFilter(ContextCompat.getColor(this, R.color.primary_main));
-                binding.ivRequestDetailStatusLine2.setBackgroundColor(ContextCompat.getColor(RequestDetailActivity.this, R.color.primary_main));
                 binding.ivRequestDetailPhotoConfirm.setVisibility(View.GONE);
                 break;
             case "Đã xác nhận":
