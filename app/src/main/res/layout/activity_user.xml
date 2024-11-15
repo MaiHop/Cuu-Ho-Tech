@@ -17,49 +17,51 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_avata_user"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     app:cardCornerRadius="100dp">
+
                     <ImageView
                         android:id="@+id/img_avatar_user"
                         android:layout_width="64dp"
                         android:layout_height="64dp"
+                        android:clipToOutline="true"
                         android:maxWidth="84dp"
                         android:maxHeight="84dp"
-                        android:clipToOutline="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/img_bg_detail_service"/>
+                        android:src="@drawable/img_bg_detail_service" />
+
                 </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="38dp"
+                    android:text="Mai Hop"
+                    android:textColor="@color/neutral_main"
+                    android:textSize="28sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="38dp"
-                        android:text="Mai Hop"
-                        android:textColor="@color/neutral_main"
-                        android:textSize="28sp" />
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginLeft="10dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -67,27 +69,166 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="5"
-                            android:textColor="@color/neutral_main"
-                            android:textSize="24sp" />
+                            android:textColor="@color/warning_main"
+                            android:textSize="19sp" />
 
                         <ImageView
                             android:id="@+id/imageView3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
                             android:layout_gravity="center"
                             android:background="@drawable/ic_car_star" />
                     </LinearLayout>
 
+                    <View
+                        android:id="@+id/view8"
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_black_radius" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center"
+                        android:text="097462387456"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_black_radius" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center"
+                        android:text="Uy tín:"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="5dp"
+                        android:gravity="center"
+                        android:text="100"
+                        android:textColor="@color/success_main"
+                        android:textSize="14sp" />
+
                 </LinearLayout>
 
-                <TextView
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="097462387456"
-                    android:gravity="center"
-                    android:textSize="14sp"
-                    android:textColor="@color/neutral_main"/>
+                    android:layout_weight="1"
+                    android:background="@drawable/background_item_layout"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/background_stroke_1_rad_100"
+                        android:enabled="true"
+                        android:padding="30dp"
+                        android:src="@drawable/ic_money"
+                        app:tint="@color/neutral_main" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:letterSpacing="0"
+                        android:lineHeight="24sp"
+                        android:text="Ví tiền mặt"
+                        android:textAlignment="center"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_wallet_cash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:letterSpacing="0.05"
+                        android:lineHeight="28sp"
+                        android:text="1.000.000.000 VNĐ"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/view7"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_item_layout"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/background_stroke_1_rad_100"
+                        android:enabled="true"
+                        android:padding="30dp"
+                        android:src="@drawable/ic_card"
+                        android:stateListAnimator="@animator/button_scale_state"
+                        app:tint="@color/neutral_main" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:letterSpacing="0"
+                        android:lineHeight="24sp"
+                        android:text="Ví tín dụng"
+                        android:textAlignment="center"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_wallet_credit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:letterSpacing="0.05"
+                        android:lineHeight="28sp"
+                        android:text="1.000.000.000 VNĐ"
+                        android:textColor="@color/neutral_main"
+                        android:textSize="14sp"
+                        android:textStyle="normal" />
+                </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

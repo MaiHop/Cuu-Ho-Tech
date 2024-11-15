@@ -79,7 +79,7 @@ public class RequestDetailActivity extends AppCompatActivity {
 
         checkInternet();
 
-        innit();
+//        innit();
         showlistservice();
 
 
@@ -223,401 +223,401 @@ public class RequestDetailActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    private void innit() {
-        Method4UI.hidehint(binding.edtRequestDetailLicensePlate, binding.tilRequestDetailLicensePlate, "Nhập biển số xe");
-        Method4UI.hidehint(binding.edtRequestDetailDescription, binding.tilRequestDetailDescription, "Mô tả tình trạng tại đây");
-
-        binding.btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-        binding.tilRequestDetailDateRequestAtPicker.setHelperText("Ngày đặt lịch không quá 30 ngày");
-
-        //Kiểm tra yêu cầu Hủy đơn
-        Intent intent = getIntent();
-
-        if (intent != null && intent.hasExtra("cancel_request")) {
-            cancel_flag = intent.getBooleanExtra("cancel_request", false);
-            cancel_description = intent.getStringExtra("cancel_description");
-            if (cancel_flag) {
-                //TODO: loading
-                CustomDialog dialog_loading = new CustomDialog().setLoading(true);
-                dialog_loading.show(getSupportFragmentManager(), "CustomDialog");
-                Handler handler = new Handler();
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        dialog_loading.cancel();
-                        if (cancel_description != null) {
-                            Toast.makeText(RequestDetailActivity.this, cancel_description, Toast.LENGTH_SHORT).show();
-                        }
-                        //        TODO: đã hủy đơn
-                        CustomDialog dialog_cancel = new CustomDialog();
-                        dialog_cancel.setType(CustomDialog.SUCCESS)
-                                .setTitle("Đã hủy đơn")
-                                .setTextBtnOutline("ĐÓNG")
-                                .setTypeLayoutBtn(CustomDialog.CENTER)
-                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
-                                    @Override
-                                    public void onViewReadyOneBtn(AppCompatTextView btnOutline) {
-                                        super.onViewReadyOneBtn(btnOutline);
-                                        btnOutline.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                dialog_cancel.cancel();
-                                            }
-                                        });
-                                    }
-                                });
-                        dialog_cancel.show(getSupportFragmentManager(), "CustomDialog");
-                    }
-                };
-                handler.postDelayed(runnable, 1000);
-            }
-        }
-
-        //Set up trạng thái
-        updateStatus(binding.llRequestDetailStatus, binding.tvRequestDetailStatus, "Đã hủy");
-
-        //Xem chi tiết trên bản đồ
-        binding.btnRequestDetailGoToMapDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                    btnRequestDetailGoToMapDetail_Event();
-                } else {
-                    CustomDialog dialog = new CustomDialog();
-                    dialog.setType(CustomDialog.DISCONNECT)
-                            .setTitle("Lỗi")
-                            .setText("Không có kết nối Internet?")
-                            .setTextBtn("ĐÓNG")
-                            .setTextBtnOutline("THỬ LẠI")
-                            .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
-                            .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
-                                @Override
-                                public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
-                                    super.onViewReadyTwoBtn(btn, btnOutline);
-                                    btn.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            btnRequestDetailGoToMapDetail_Event();
-                                        }
-                                    });
-                                    btnOutline.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            dialog.cancel();
-                                        }
-                                    });
-                                }
-                            });
-                    dialog.show(getSupportFragmentManager(), "CustomDialog");
-                }
-            }
-        });
-
-        //Mở dialog chọn ngày
-        binding.btnRequestDetailOpenDatepicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Đặt ngôn ngữ sang tiếng việt
-                Locale.setDefault(new Locale("vi"));
-                Configuration config = getResources().getConfiguration();
-                config.setLocale(new Locale("vi"));
-                getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-
-                // Ngày hôm nay
-                Date todayDate = new Date();
-                long today = todayDate.getTime();
-
-                // Tính ngày kết thúc là 30 ngày sau ngày hôm nay
-                long thirtyDaysInMillis = 30L * 24 * 60 * 60 * 1000;
-                long end = today + thirtyDaysInMillis;
-
-                // Tạo CalendarConstraints để giới hạn phạm vi ngày
-                CalendarConstraints.Builder constraintsBuilder = new CalendarConstraints.Builder()
-                        .setStart(today)
-                        .setEnd(end)
-                        .setValidator(DateValidatorPointForward.from(today));
-
-                // Tạo MaterialDatePicker với giới hạn ngày
-                MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker()
-                        .setTitleText("Chọn ngày")
-                        .setSelection(today)
-                        .setCalendarConstraints(constraintsBuilder.build())
-                        .build();
-
-                materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
-                    @Override
-                    public void onPositiveButtonClick(Long selection) {
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd 'thg' MM yyyy", new Locale("vi"));
-                        String formattedDate = dateFormat.format(new Date(selection));
-
-                        binding.edtRequestDetailDateRequestAtPicker.setText(formattedDate);
-                    }
-                });
-                materialDatePicker.show(getSupportFragmentManager(), "MaterialDatePicker");
-            }
-        });
-
-        //Mở dialog chọn giờ
-        binding.btnRequestDetailOpenTimepicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Đặt ngôn ngữ sang tiếng việt
-                Locale.setDefault(new Locale("vi"));
-                Configuration config = getResources().getConfiguration();
-                config.setLocale(new Locale("vi"));
-                getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-
-                Calendar calendar = Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR_OF_DAY);
-                int minute = calendar.get(Calendar.MINUTE);
-                // Tạo MaterialTimePicker với định dạng 24 giờ
-                MaterialTimePicker materialTimePicker = new MaterialTimePicker.Builder()
-                        .setTimeFormat(TimeFormat.CLOCK_12H)
-                        .setHour(hour)
-                        .setMinute(minute)
-                        .setInputMode(MaterialTimePicker.INPUT_MODE_CLOCK)
-                        .setTitleText("Chọn giờ")
-                        .build();
-
-                materialTimePicker.show(getSupportFragmentManager(), "MaterialTimePicker");
-
-                materialTimePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int selectedHour = materialTimePicker.getHour();
-                        int selectedMinute = materialTimePicker.getMinute();
-
-                        Calendar calendar = Calendar.getInstance();
-                        calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
-                        calendar.set(Calendar.MINUTE, selectedMinute);
-
-                        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault()); // Ví dụ: 02:30 PM
-                        String formattedTime = timeFormat.format(calendar.getTime());
-
-                        binding.edtRequestDetailTimeRequestAtPicker.setText(formattedTime);
-                    }
-                });
-            }
-        });
-
-        //Xác nhận
-        binding.btnRequestDetailConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                    btnRequestDetailBooking_Event();
-                } else {
-                    CustomDialog dialog = new CustomDialog();
-                    dialog.setType(CustomDialog.DISCONNECT)
-                            .setTitle("Lỗi")
-                            .setText("Không có kết nối Internet?")
-                            .setTextBtn("ĐÓNG")
-                            .setTextBtnOutline("THỬ LẠI")
-                            .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
-                            .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
-                                @Override
-                                public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
-                                    super.onViewReadyTwoBtn(btn, btnOutline);
-                                    btn.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            btnRequestDetailBooking_Event();
-                                        }
-                                    });
-                                    btnOutline.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            dialog.cancel();
-                                        }
-                                    });
-                                }
-                            });
-                    dialog.show(getSupportFragmentManager(), "CustomDialog");
-                }
-            }
-        });
-
-        //Xử lý
-        binding.btnRequestDetailHandle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                    btnRequestDetailSave_Event();
-                } else {
-                    CustomDialog dialog = new CustomDialog();
-                    dialog.setType(CustomDialog.DISCONNECT)
-                            .setTitle("Lỗi")
-                            .setText("Không có kết nối Internet?")
-                            .setTextBtn("ĐÓNG")
-                            .setTextBtnOutline("THỬ LẠI")
-                            .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
-                            .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
-                                @Override
-                                public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
-                                    super.onViewReadyTwoBtn(btn, btnOutline);
-                                    btn.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            btnRequestDetailSave_Event();
-                                        }
-                                    });
-                                    btnOutline.setOnClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            dialog.cancel();
-                                        }
-                                    });
-                                }
-                            });
-                    dialog.show(getSupportFragmentManager(), "CustomDialog");
-                }
-            }
-        });
-
-        //Hoàn thành
-        binding.btnRequestDetailComplete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Show dialog QR code
-            }
-        });
-
-        //Liên hệ khách
-        binding.btnRequestDetailCallCustomer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(RequestDetailActivity.this, ReviewActivity.class);
-                startActivity(i);
-            }
-        });
-
-        //Hủy đơn
-        binding.btnRequestDetailCancel1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                    if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                        btnRequestDetailCancel_Event();
-                    } else {
-                        CustomDialog dialog = new CustomDialog();
-                        dialog.setType(CustomDialog.DISCONNECT)
-                                .setTitle("Lỗi")
-                                .setText("Không có kết nối Internet?")
-                                .setTextBtn("ĐÓNG")
-                                .setTextBtnOutline("THỬ LẠI")
-                                .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
-                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
-                                    @Override
-                                    public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
-                                        super.onViewReadyTwoBtn(btn, btnOutline);
-                                        btn.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                btnRequestDetailCancel_Event();
-                                            }
-                                        });
-                                        btnOutline.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                dialog.cancel();
-                                            }
-                                        });
-                                    }
-                                });
-                        dialog.show(getSupportFragmentManager(), "CustomDialog");
-                    }
-                }
-            }
-        });
-        binding.btnRequestDetailCancel2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                    if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                        btnRequestDetailCancel_Event();
-                    } else {
-                        CustomDialog dialog = new CustomDialog();
-                        dialog.setType(CustomDialog.DISCONNECT)
-                                .setTitle("Lỗi")
-                                .setText("Không có kết nối Internet?")
-                                .setTextBtn("ĐÓNG")
-                                .setTextBtnOutline("THỬ LẠI")
-                                .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
-                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
-                                    @Override
-                                    public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
-                                        super.onViewReadyTwoBtn(btn, btnOutline);
-                                        btn.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                btnRequestDetailCancel_Event();
-                                            }
-                                        });
-                                        btnOutline.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                dialog.cancel();
-                                            }
-                                        });
-                                    }
-                                });
-                        dialog.show(getSupportFragmentManager(), "CustomDialog");
-                    }
-                }
-            }
-        });
-        binding.btnRequestDetailCancel3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                    if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
-                        btnRequestDetailCancel_Event();
-                    } else {
-                        CustomDialog dialog = new CustomDialog();
-                        dialog.setType(CustomDialog.DISCONNECT)
-                                .setTitle("Lỗi")
-                                .setText("Không có kết nối Internet?")
-                                .setTextBtn("ĐÓNG")
-                                .setTextBtnOutline("THỬ LẠI")
-                                .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
-                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
-                                    @Override
-                                    public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
-                                        super.onViewReadyTwoBtn(btn, btnOutline);
-                                        btn.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                btnRequestDetailCancel_Event();
-                                            }
-                                        });
-                                        btnOutline.setOnClickListener(new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                dialog.cancel();
-                                            }
-                                        });
-                                    }
-                                });
-                        dialog.show(getSupportFragmentManager(), "CustomDialog");
-                    }
-                }
-            }
-        });
-
-        //Load lại activity
-        binding.llNoInternet.btnReload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkInternet();
-            }
-        });
-    }
+//    private void innit() {
+//        Method4UI.hidehint(binding.edtRequestDetailLicensePlate, binding.tilRequestDetailLicensePlate, "Nhập biển số xe");
+//        Method4UI.hidehint(binding.edtRequestDetailDescription, binding.tilRequestDetailDescription, "Mô tả tình trạng tại đây");
+//
+//        binding.btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//
+//        binding.tilRequestDetailDateRequestAtPicker.setHelperText("Ngày đặt lịch không quá 30 ngày");
+//
+//        //Kiểm tra yêu cầu Hủy đơn
+//        Intent intent = getIntent();
+//
+//        if (intent != null && intent.hasExtra("cancel_request")) {
+//            cancel_flag = intent.getBooleanExtra("cancel_request", false);
+//            cancel_description = intent.getStringExtra("cancel_description");
+//            if (cancel_flag) {
+//                //TODO: loading
+//                CustomDialog dialog_loading = new CustomDialog().setLoading(true);
+//                dialog_loading.show(getSupportFragmentManager(), "CustomDialog");
+//                Handler handler = new Handler();
+//                Runnable runnable = new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        dialog_loading.cancel();
+//                        if (cancel_description != null) {
+//                            Toast.makeText(RequestDetailActivity.this, cancel_description, Toast.LENGTH_SHORT).show();
+//                        }
+//                        //        TODO: đã hủy đơn
+//                        CustomDialog dialog_cancel = new CustomDialog();
+//                        dialog_cancel.setType(CustomDialog.SUCCESS)
+//                                .setTitle("Đã hủy đơn")
+//                                .setTextBtnOutline("ĐÓNG")
+//                                .setTypeLayoutBtn(CustomDialog.CENTER)
+//                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+//                                    @Override
+//                                    public void onViewReadyOneBtn(AppCompatTextView btnOutline) {
+//                                        super.onViewReadyOneBtn(btnOutline);
+//                                        btnOutline.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                dialog_cancel.cancel();
+//                                            }
+//                                        });
+//                                    }
+//                                });
+//                        dialog_cancel.show(getSupportFragmentManager(), "CustomDialog");
+//                    }
+//                };
+//                handler.postDelayed(runnable, 1000);
+//            }
+//        }
+//
+//        //Set up trạng thái
+//        updateStatus(binding.llRequestDetailStatus, binding.tvRequestDetailStatus, "Đã hủy");
+//
+//        //Xem chi tiết trên bản đồ
+//        binding.btnRequestDetailGoToMapDetail.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                    btnRequestDetailGoToMapDetail_Event();
+//                } else {
+//                    CustomDialog dialog = new CustomDialog();
+//                    dialog.setType(CustomDialog.DISCONNECT)
+//                            .setTitle("Lỗi")
+//                            .setText("Không có kết nối Internet?")
+//                            .setTextBtn("ĐÓNG")
+//                            .setTextBtnOutline("THỬ LẠI")
+//                            .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
+//                            .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+//                                @Override
+//                                public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
+//                                    super.onViewReadyTwoBtn(btn, btnOutline);
+//                                    btn.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            btnRequestDetailGoToMapDetail_Event();
+//                                        }
+//                                    });
+//                                    btnOutline.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            dialog.cancel();
+//                                        }
+//                                    });
+//                                }
+//                            });
+//                    dialog.show(getSupportFragmentManager(), "CustomDialog");
+//                }
+//            }
+//        });
+//
+//        //Mở dialog chọn ngày
+//        binding.btnRequestDetailOpenDatepicker.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //Đặt ngôn ngữ sang tiếng việt
+//                Locale.setDefault(new Locale("vi"));
+//                Configuration config = getResources().getConfiguration();
+//                config.setLocale(new Locale("vi"));
+//                getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+//
+//                // Ngày hôm nay
+//                Date todayDate = new Date();
+//                long today = todayDate.getTime();
+//
+//                // Tính ngày kết thúc là 30 ngày sau ngày hôm nay
+//                long thirtyDaysInMillis = 30L * 24 * 60 * 60 * 1000;
+//                long end = today + thirtyDaysInMillis;
+//
+//                // Tạo CalendarConstraints để giới hạn phạm vi ngày
+//                CalendarConstraints.Builder constraintsBuilder = new CalendarConstraints.Builder()
+//                        .setStart(today)
+//                        .setEnd(end)
+//                        .setValidator(DateValidatorPointForward.from(today));
+//
+//                // Tạo MaterialDatePicker với giới hạn ngày
+//                MaterialDatePicker<Long> materialDatePicker = MaterialDatePicker.Builder.datePicker()
+//                        .setTitleText("Chọn ngày")
+//                        .setSelection(today)
+//                        .setCalendarConstraints(constraintsBuilder.build())
+//                        .build();
+//
+//                materialDatePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener<Long>() {
+//                    @Override
+//                    public void onPositiveButtonClick(Long selection) {
+//                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd 'thg' MM yyyy", new Locale("vi"));
+//                        String formattedDate = dateFormat.format(new Date(selection));
+//
+//                        binding.edtRequestDetailDateRequestAtPicker.setText(formattedDate);
+//                    }
+//                });
+//                materialDatePicker.show(getSupportFragmentManager(), "MaterialDatePicker");
+//            }
+//        });
+//
+//        //Mở dialog chọn giờ
+//        binding.btnRequestDetailOpenTimepicker.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //Đặt ngôn ngữ sang tiếng việt
+//                Locale.setDefault(new Locale("vi"));
+//                Configuration config = getResources().getConfiguration();
+//                config.setLocale(new Locale("vi"));
+//                getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+//
+//                Calendar calendar = Calendar.getInstance();
+//                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+//                int minute = calendar.get(Calendar.MINUTE);
+//                // Tạo MaterialTimePicker với định dạng 24 giờ
+//                MaterialTimePicker materialTimePicker = new MaterialTimePicker.Builder()
+//                        .setTimeFormat(TimeFormat.CLOCK_12H)
+//                        .setHour(hour)
+//                        .setMinute(minute)
+//                        .setInputMode(MaterialTimePicker.INPUT_MODE_CLOCK)
+//                        .setTitleText("Chọn giờ")
+//                        .build();
+//
+//                materialTimePicker.show(getSupportFragmentManager(), "MaterialTimePicker");
+//
+//                materialTimePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        int selectedHour = materialTimePicker.getHour();
+//                        int selectedMinute = materialTimePicker.getMinute();
+//
+//                        Calendar calendar = Calendar.getInstance();
+//                        calendar.set(Calendar.HOUR_OF_DAY, selectedHour);
+//                        calendar.set(Calendar.MINUTE, selectedMinute);
+//
+//                        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault()); // Ví dụ: 02:30 PM
+//                        String formattedTime = timeFormat.format(calendar.getTime());
+//
+//                        binding.edtRequestDetailTimeRequestAtPicker.setText(formattedTime);
+//                    }
+//                });
+//            }
+//        });
+//
+//        //Xác nhận
+//        binding.btnRequestDetailConfirm.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                    btnRequestDetailBooking_Event();
+//                } else {
+//                    CustomDialog dialog = new CustomDialog();
+//                    dialog.setType(CustomDialog.DISCONNECT)
+//                            .setTitle("Lỗi")
+//                            .setText("Không có kết nối Internet?")
+//                            .setTextBtn("ĐÓNG")
+//                            .setTextBtnOutline("THỬ LẠI")
+//                            .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
+//                            .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+//                                @Override
+//                                public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
+//                                    super.onViewReadyTwoBtn(btn, btnOutline);
+//                                    btn.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            btnRequestDetailBooking_Event();
+//                                        }
+//                                    });
+//                                    btnOutline.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            dialog.cancel();
+//                                        }
+//                                    });
+//                                }
+//                            });
+//                    dialog.show(getSupportFragmentManager(), "CustomDialog");
+//                }
+//            }
+//        });
+//
+//        //Xử lý
+//        binding.btnRequestDetailHandle.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                    btnRequestDetailSave_Event();
+//                } else {
+//                    CustomDialog dialog = new CustomDialog();
+//                    dialog.setType(CustomDialog.DISCONNECT)
+//                            .setTitle("Lỗi")
+//                            .setText("Không có kết nối Internet?")
+//                            .setTextBtn("ĐÓNG")
+//                            .setTextBtnOutline("THỬ LẠI")
+//                            .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
+//                            .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+//                                @Override
+//                                public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
+//                                    super.onViewReadyTwoBtn(btn, btnOutline);
+//                                    btn.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            btnRequestDetailSave_Event();
+//                                        }
+//                                    });
+//                                    btnOutline.setOnClickListener(new View.OnClickListener() {
+//                                        @Override
+//                                        public void onClick(View v) {
+//                                            dialog.cancel();
+//                                        }
+//                                    });
+//                                }
+//                            });
+//                    dialog.show(getSupportFragmentManager(), "CustomDialog");
+//                }
+//            }
+//        });
+//
+//        //Hoàn thành
+//        binding.btnRequestDetailComplete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //Show dialog QR code
+//            }
+//        });
+//
+//        //Liên hệ khách
+//        binding.btnRequestDetailCallCustomer.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(RequestDetailActivity.this, ReviewActivity.class);
+//                startActivity(i);
+//            }
+//        });
+//
+//        //Hủy đơn
+//        binding.btnRequestDetailCancel1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                    if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                        btnRequestDetailCancel_Event();
+//                    } else {
+//                        CustomDialog dialog = new CustomDialog();
+//                        dialog.setType(CustomDialog.DISCONNECT)
+//                                .setTitle("Lỗi")
+//                                .setText("Không có kết nối Internet?")
+//                                .setTextBtn("ĐÓNG")
+//                                .setTextBtnOutline("THỬ LẠI")
+//                                .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
+//                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+//                                    @Override
+//                                    public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
+//                                        super.onViewReadyTwoBtn(btn, btnOutline);
+//                                        btn.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                btnRequestDetailCancel_Event();
+//                                            }
+//                                        });
+//                                        btnOutline.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                dialog.cancel();
+//                                            }
+//                                        });
+//                                    }
+//                                });
+//                        dialog.show(getSupportFragmentManager(), "CustomDialog");
+//                    }
+//                }
+//            }
+//        });
+//        binding.btnRequestDetailCancel2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                    if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                        btnRequestDetailCancel_Event();
+//                    } else {
+//                        CustomDialog dialog = new CustomDialog();
+//                        dialog.setType(CustomDialog.DISCONNECT)
+//                                .setTitle("Lỗi")
+//                                .setText("Không có kết nối Internet?")
+//                                .setTextBtn("ĐÓNG")
+//                                .setTextBtnOutline("THỬ LẠI")
+//                                .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
+//                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+//                                    @Override
+//                                    public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
+//                                        super.onViewReadyTwoBtn(btn, btnOutline);
+//                                        btn.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                btnRequestDetailCancel_Event();
+//                                            }
+//                                        });
+//                                        btnOutline.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                dialog.cancel();
+//                                            }
+//                                        });
+//                                    }
+//                                });
+//                        dialog.show(getSupportFragmentManager(), "CustomDialog");
+//                    }
+//                }
+//            }
+//        });
+//        binding.btnRequestDetailCancel3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                    if (CheckNetwork.isAvailable(RequestDetailActivity.this)) {
+//                        btnRequestDetailCancel_Event();
+//                    } else {
+//                        CustomDialog dialog = new CustomDialog();
+//                        dialog.setType(CustomDialog.DISCONNECT)
+//                                .setTitle("Lỗi")
+//                                .setText("Không có kết nối Internet?")
+//                                .setTextBtn("ĐÓNG")
+//                                .setTextBtnOutline("THỬ LẠI")
+//                                .setTypeLayoutBtn(CustomDialog.LEFT_RIGHT)
+//                                .setOnDialogViewReadyListener(new DialogViewReadyListenerAdapter() {
+//                                    @Override
+//                                    public void onViewReadyTwoBtn(AppCompatTextView btn, AppCompatTextView btnOutline) {
+//                                        super.onViewReadyTwoBtn(btn, btnOutline);
+//                                        btn.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                btnRequestDetailCancel_Event();
+//                                            }
+//                                        });
+//                                        btnOutline.setOnClickListener(new View.OnClickListener() {
+//                                            @Override
+//                                            public void onClick(View v) {
+//                                                dialog.cancel();
+//                                            }
+//                                        });
+//                                    }
+//                                });
+//                        dialog.show(getSupportFragmentManager(), "CustomDialog");
+//                    }
+//                }
+//            }
+//        });
+//
+//        //Load lại activity
+//        binding.llNoInternet.btnReload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                checkInternet();
+//            }
+//        });
+//    }
 
 
     private void checkInternet() {
