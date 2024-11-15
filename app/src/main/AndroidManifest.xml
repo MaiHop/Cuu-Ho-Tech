@@ -104,6 +104,9 @@
             android:name=".Presentation.Activity.OrderListActivity"
             android:exported="true" />
         <activity
+            android:name=".Presentation.Activity.Register.RegisterCertificateActivity"
+            android:exported="true" />
+        <activity
             android:name=".Presentation.Activity.ConfirmCancellationActivity"
             android:exported="true" />
         <activity
