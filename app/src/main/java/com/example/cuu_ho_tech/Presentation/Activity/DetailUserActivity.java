@@ -50,7 +50,7 @@ public class DetailUserActivity extends AppCompatActivity {
                 }
             }
         });
-        binding.imgBack.setOnClickListener(new View.OnClickListener() {
+        binding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

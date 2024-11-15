@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cuu_ho_tech.Presentation.ViewHolder.OptionViewHolder;
 import com.example.cuu_ho_tech.R;
 import com.example.cuu_ho_tech.Utils.ClickListener;
-import com.example.cuu_ho_tech.databinding.ItemLocationBinding;
 import com.example.cuu_ho_tech.databinding.ItemOptionBinding;
 
 import java.util.List;
