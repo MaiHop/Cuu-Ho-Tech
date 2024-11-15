@@ -632,84 +632,6 @@
                         android:background="@drawable/background_item_normal"
                         android:orientation="vertical"
                         android:padding="10dp">
-                        <!--Thành tiền-->
-                        <GridLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:columnCount="2"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:rowCount="1">
-
-                            <TextView
-                                android:layout_row="0"
-                                android:layout_column="0"
-                                android:layout_columnWeight="1"
-                                android:gravity="top"
-                                android:letterSpacing="0"
-                                android:lineHeight="24sp"
-                                android:text="Thành tiền"
-                                android:textColor="@color/neutral_main"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_RequestDetail_amount"
-                                android:layout_columnWeight="1"
-                                android:layout_weight="1"
-                                android:gravity="top|end"
-                                android:letterSpacing="0"
-                                android:lineHeight="24sp"
-                                android:text="000.000.000đ"
-                                android:textColor="@color/success_main"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-                        </GridLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@color/neutral_light_border"
-                            android:orientation="vertical" />
-                        <!--Khách hàng Rank-->
-                        <GridLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:columnCount="2"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:rowCount="1">
-
-                            <TextView
-                                android:layout_columnWeight="1"
-                                android:gravity="top"
-                                android:letterSpacing="0"
-                                android:lineHeight="24sp"
-                                android:text="Khách hàng Rank"
-                                android:textColor="@color/neutral_main"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_RequestDetail_discount"
-                                android:layout_columnWeight="1"
-                                android:layout_weight="1"
-                                android:gravity="top|end"
-                                android:letterSpacing="0"
-                                android:lineHeight="24sp"
-                                android:text="-000.000.000đ"
-                                android:textColor="@color/neutral_focus"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-                        </GridLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="10dp"
-                            android:background="@color/neutral_light_border"
-                            android:orientation="vertical" />
                         <!--Tổng tiền-->
                         <GridLayout
                             android:layout_width="match_parent"
@@ -750,19 +672,15 @@
                         <!--Ngày đặt-->
                         <GridLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:columnCount="3"
-                            android:gravity="center"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
+                            android:layout_height="match_parent"
+                            android:columnCount="2"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
                             android:rowCount="1">
 
                             <TextView
-                                android:layout_row="0"
-                                android:layout_rowWeight="1"
-                                android:layout_column="0"
-                                android:layout_columnWeight="0"
-                                android:gravity="center"
+                                android:layout_columnWeight="1"
+                                android:gravity="top"
                                 android:letterSpacing="0"
                                 android:lineHeight="24sp"
                                 android:text="Ngày:"
@@ -770,55 +688,17 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_RequestDetail_Date_request_at_picker"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                                android:layout_rowWeight="1"
+                            <TextView
+                                android:id="@+id/tv_RequestDetail_Date_request_at"
                                 android:layout_columnWeight="1"
-                                android:layout_marginTop="20dp"
-                                app:boxBackgroundColor="@color/white"
-                                app:boxStrokeColor="@color/gray_02_100"
-                                app:boxStrokeWidth="0dp"
-                                app:boxStrokeWidthFocused="0dp"
-                                app:errorEnabled="true"
-                                app:errorIconDrawable="@drawable/ic_error"
-                                app:errorIconTint="@color/danger_main"
-                                app:errorTextColor="@color/danger_main"
-                                app:helperTextTextColor="@color/danger_main">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/edt_RequestDetail_Date_request_at_picker"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Chọn ngày"
-                                    android:focusable="false"
-                                    android:focusableInTouchMode="false"
-                                    android:gravity="right"
-                                    android:inputType="text"
-                                    android:padding="0dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <ImageButton
-                                android:id="@+id/btn_RequestDetail_open_datepicker"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:adjustViewBounds="true"
-                                android:background="@drawable/button_calendar_time"
-                                android:drawableTint="@drawable/button_text_color"
-                                android:enabled="true"
-                                android:padding="8dp"
-                                android:scaleType="center"
-                                android:src="@drawable/ic_calendar_24"
-                                android:stateListAnimator="@animator/button_scale_state"
-                                android:text="sfdfsdfsd"
-                                android:textAllCaps="false"
-                                android:textColor="@drawable/button_text_color"
-                                android:textSize="14sp"
-                                app:tint="@color/neutral_main"
-                                android:contentDescription="Chọn ngày"
-                                android:visibility="gone"/>
-
+                                android:layout_weight="1"
+                                android:gravity="top|end"
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="18 thg 10 2024"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
                         </GridLayout>
 
                         <LinearLayout
@@ -829,73 +709,33 @@
                         <!--Giờ đặt-->
                         <GridLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:columnCount="3"
-                            android:gravity="center|top"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
+                            android:layout_height="match_parent"
+                            android:columnCount="2"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
                             android:rowCount="1">
 
                             <TextView
-                                android:layout_row="0"
-                                android:layout_rowWeight="1"
-                                android:layout_column="0"
-                                android:layout_columnWeight="0"
-                                android:gravity="center"
+                                android:layout_columnWeight="1"
+                                android:gravity="top"
                                 android:letterSpacing="0"
                                 android:lineHeight="24sp"
                                 android:text="Giờ:"
                                 android:textColor="@color/neutral_main"
-
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                                android:layout_rowWeight="1"
+                            <TextView
+                                android:id="@+id/tv_RequestDetail_Time_request_at"
                                 android:layout_columnWeight="1"
-                                android:layout_marginTop="20dp"
-                                app:boxBackgroundColor="@color/white"
-                                app:boxStrokeColor="@color/gray_02_100"
-                                app:boxStrokeWidth="0dp"
-                                app:boxStrokeWidthFocused="0dp"
-                                app:errorEnabled="true"
-                                app:errorIconDrawable="@drawable/ic_error"
-                                app:errorIconTint="@color/danger_main"
-                                app:errorTextColor="@color/danger_main"
-                                app:helperTextTextColor="@color/danger_main">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/edt_RequestDetail_Time_request_at_picker"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Chọn giờ"
-                                    android:focusable="false"
-                                    android:focusableInTouchMode="false"
-                                    android:gravity="right"
-                                    android:inputType="text"
-                                    android:padding="0dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
-
-                            <ImageButton
-                                android:id="@+id/btn_RequestDetail_open_timepicker"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:background="@drawable/button_calendar_time"
-                                android:drawablePadding="5dp"
-                                android:drawableTint="@drawable/button_text_color"
-                                android:enabled="true"
-                                android:padding="8dp"
-                                android:src="@drawable/ic_time"
-                                android:stateListAnimator="@animator/button_scale_state"
-                                android:text="sfdfsdfsd"
-                                android:textAllCaps="false"
-                                android:textColor="@drawable/button_text_color"
-                                android:textSize="14sp"
-                                app:tint="@color/neutral_main"
-                                android:contentDescription="Chọn giờ"
-                                android:visibility="gone"/>
+                                android:layout_weight="1"
+                                android:gravity="top|end"
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="09:09"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
                         </GridLayout>
 
                         <LinearLayout
@@ -906,53 +746,33 @@
                         <!--Khách hàng-->
                         <GridLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:columnCount="3"
-                            android:gravity="center|top"
-                            android:paddingTop="10dp"
+                            android:layout_height="match_parent"
+                            android:columnCount="2"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
                             android:rowCount="1">
 
                             <TextView
-                                android:layout_row="0"
-                                android:layout_rowWeight="0"
-                                android:layout_column="0"
-                                android:layout_columnWeight="0"
-                                android:gravity="center"
+                                android:layout_columnWeight="1"
+                                android:gravity="top"
                                 android:letterSpacing="0"
                                 android:lineHeight="24sp"
                                 android:text="Khách hàng:"
                                 android:textColor="@color/neutral_main"
-
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_RequestDetail_customer"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                                android:layout_rowWeight="0"
+                            <TextView
+                                android:id="@+id/tv_RequestDetail_customer_name"
                                 android:layout_columnWeight="1"
-                                android:padding="0dp"
-                                app:boxBackgroundColor="@color/white"
-                                app:boxStrokeColor="@color/gray_02_100"
-                                app:boxStrokeWidth="0dp"
-                                app:boxStrokeWidthFocused="0dp"
-                                app:errorEnabled="true"
-                                app:errorIconDrawable="@drawable/ic_error"
-                                app:errorIconTint="@color/danger_main"
-                                app:errorTextColor="@color/danger_main"
-                                app:helperTextTextColor="@color/danger_main">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/edt_RequestCreate_customer"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Tên khách hàng"
-                                    android:focusable="false"
-                                    android:focusableInTouchMode="false"
-                                    android:gravity="right"
-                                    android:inputType="text"
-                                    android:padding="0dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
+                                android:layout_weight="1"
+                                android:gravity="top|end"
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="Tên khách hàng"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
                         </GridLayout>
 
                         <LinearLayout
@@ -966,7 +786,8 @@
                             android:layout_height="wrap_content"
                             android:columnCount="3"
                             android:gravity="center|top"
-                            android:paddingTop="10dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
                             android:rowCount="1">
 
                             <TextView
@@ -983,33 +804,17 @@
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_RequestDetail_phone"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                                android:layout_rowWeight="0"
+                            <TextView
+                                android:id="@+id/tv_RequestDetail_customer_phone"
                                 android:layout_columnWeight="1"
-                                android:padding="0dp"
-                                app:boxBackgroundColor="@color/white"
-                                app:boxStrokeColor="@color/gray_02_100"
-                                app:boxStrokeWidth="0dp"
-                                app:boxStrokeWidthFocused="0dp"
-                                app:errorEnabled="true"
-                                app:errorIconDrawable="@drawable/ic_error"
-                                app:errorIconTint="@color/danger_main"
-                                app:errorTextColor="@color/danger_main"
-                                app:helperTextTextColor="@color/danger_main">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/edt_RequestCreate_phone"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="0987654321"
-                                    android:focusable="false"
-                                    android:focusableInTouchMode="false"
-                                    android:gravity="right"
-                                    android:inputType="text"
-                                    android:padding="0dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
+                                android:layout_weight="1"
+                                android:gravity="top|end"
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="0987654321"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
 
                             <ImageView
                                 android:id="@+id/btn_RequestDetail_call"
@@ -1017,7 +822,6 @@
                                 android:layout_height="24dp"
                                 android:layout_gravity="top"
                                 android:drawablePadding="5dp"
-                                android:layout_marginTop="4dp"
                                 android:enabled="true"
                                 android:src="@drawable/ic_phone"
                                 android:stateListAnimator="@animator/button_scale_state"
@@ -1035,7 +839,8 @@
                             android:layout_height="wrap_content"
                             android:columnCount="3"
                             android:gravity="center|top"
-                            android:paddingTop="10dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
                             android:rowCount="1">
 
                             <TextView
@@ -1048,37 +853,19 @@
                                 android:lineHeight="24sp"
                                 android:text="Phương thức thanh toán:"
                                 android:textColor="@color/neutral_main"
-
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_RequestDetail_payment_method"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                                android:layout_rowWeight="0"
-                                android:layout_columnWeight="1"
-                                android:padding="0dp"
-                                app:boxBackgroundColor="@color/white"
-                                app:boxStrokeColor="@color/gray_02_100"
-                                app:boxStrokeWidth="0dp"
-                                app:boxStrokeWidthFocused="0dp"
-                                app:errorEnabled="true"
-                                app:errorIconDrawable="@drawable/ic_error"
-                                app:errorIconTint="@color/danger_main"
-                                app:errorTextColor="@color/danger_main"
-                                app:helperTextTextColor="@color/danger_main">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/edt_RequestDetail_payment_method"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Tiền mặt"
-                                    android:focusable="false"
-                                    android:focusableInTouchMode="false"
-                                    android:gravity="right"
-                                    android:inputType="text"
-                                    android:padding="0dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
+                                <TextView
+                                    android:id="@+id/tv_RequestDetail_payment_method"
+                                    android:layout_columnWeight="1"
+                                    android:layout_weight="1"
+                                    android:gravity="top|end"
+                                    android:letterSpacing="0"
+                                    android:lineHeight="24sp"
+                                    android:text="0987654321"
+                                    android:textColor="@color/neutral_main"
+                                    android:textSize="16sp"
+                                    android:textStyle="normal" />
 
                             <ImageView
                                 android:id="@+id/btn_RequestDetail_payment_method_picker"
@@ -1104,9 +891,10 @@
                             android:id="@+id/gl_RequestDetail_license_plate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:columnCount="3"
+                            android:columnCount="2"
                             android:gravity="center|top"
-                            android:paddingTop="10dp"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp"
                             android:rowCount="1">
 
                             <TextView
@@ -1119,34 +907,19 @@
                                 android:lineHeight="24sp"
                                 android:text="Biển số xe:"
                                 android:textColor="@color/neutral_main"
-
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
-
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_RequestDetail_license_plate"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                                android:layout_rowWeight="0"
+                            <TextView
+                                android:id="@+id/tv_RequestDetail_license_plate"
                                 android:layout_columnWeight="1"
-                                android:hint="Nhập biển số xe"
-                                app:boxBackgroundColor="@color/white"
-                                app:boxStrokeColor="@color/gray_02_100"
-                                app:boxStrokeWidth="0dp"
-                                app:boxStrokeWidthFocused="0dp"
-                                app:errorEnabled="true"
-                                app:errorIconDrawable="@drawable/ic_error"
-                                app:errorIconTint="@color/danger_main"
-                                app:errorTextColor="@color/danger_main"
-                                app:helperTextTextColor="@color/danger_main">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/edt_RequestDetail_license_plate"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:gravity="right"
-                                    android:inputType="text"
-                                    android:padding="0dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
+                                android:layout_weight="1"
+                                android:gravity="top|end"
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="B1234"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
                         </GridLayout>
 
                         <LinearLayout
@@ -1164,31 +937,20 @@
                             android:paddingBottom="10dp"
                             android:rowCount="2">
 
-                            <com.google.android.material.textfield.TextInputLayout
-                                android:id="@+id/til_RequestDetail_description"
-                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            <TextView
+                                android:id="@+id/tv_RequestDetail_description"
                                 android:layout_width="match_parent"
-                                android:layout_height="150dp"
+                                android:minHeight="150dp"
+                                android:layout_height="wrap_content"
                                 android:layout_marginBottom="20dp"
                                 android:hint="Mô tả tình trạng tại đây"
                                 app:boxBackgroundColor="@color/white"
-                                app:boxStrokeColor="@color/gray_02_100"
-                                app:boxStrokeWidth="0dp"
-                                app:boxStrokeWidthFocused="0dp"
-                                app:errorEnabled="true"
-                                app:errorIconDrawable="@drawable/ic_error"
-                                app:errorIconTint="@color/danger_main"
-                                app:errorTextColor="@color/danger_main"
-                                app:helperTextTextColor="@color/danger_main">
-
-                                <com.google.android.material.textfield.TextInputEditText
-                                    android:id="@+id/edt_RequestDetail_description"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:gravity="left"
-                                    android:inputType="textMultiLine"
-                                    android:padding="0dp" />
-                            </com.google.android.material.textfield.TextInputLayout>
+                                android:letterSpacing="0"
+                                android:lineHeight="24sp"
+                                android:text="B1234"
+                                android:textColor="@color/neutral_main"
+                                android:textSize="16sp"
+                                android:textStyle="normal" />
 
                             <GridLayout
                                 android:layout_width="match_parent"
@@ -1204,7 +966,7 @@
                                     android:layout_marginRight="10dp"
                                     app:cardCornerRadius="12dp"
                                     app:cardElevation="0dp"
-                                    android:visibility="gone">
+                                    android:visibility="visible">
 
                                     <ImageView
                                         android:id="@+id/iv_RequestDetail_photo"
