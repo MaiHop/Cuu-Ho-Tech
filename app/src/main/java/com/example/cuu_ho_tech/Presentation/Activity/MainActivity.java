@@ -77,9 +77,9 @@ public class MainActivity extends BaseActivity {
                     int itemId = item.getItemId();
                     if (itemId == R.id.home) {
                         showFragment(homeFragment);
-                    } else if (itemId == R.id.history) {
+                    } else if (itemId == R.id.list_order) {
                         showFragment(historyFragment);
-                    } else if (itemId == R.id.workShop) {
+                    } else if (itemId == R.id.message) {
                         showFragment(workShopFragment);
                     } else if (itemId == R.id.account) {
                         showFragment(accountFragment);
@@ -89,18 +89,6 @@ public class MainActivity extends BaseActivity {
             return true;
         });
 
-        binding.btnFab.setOnClickListener(v -> {
-            if(emergencyRescueFragment != activeFragment) {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                if (!emergencyRescueFragment.isAdded()) {
-                    transaction.add(binding.frameLayout.getId(), emergencyRescueFragment).hide(activeFragment).show(emergencyRescueFragment).commit();
-                } else transaction.hide(activeFragment).show(emergencyRescueFragment).commit();
-                activeFragment = emergencyRescueFragment;
-                binding.bottomNavigationView.setSelectedItemId(R.id.fab);
-                binding.bottomNavigationView.setItemTextColor(ContextCompat.getColorStateList(this, R.color.bottom_nav_text_red_color));
-                binding.bottomNavigationView.setItemActiveIndicatorColor(ContextCompat.getColorStateList(this, R.color.transparent));
-            }
-        });
         sharedMainToRescueViewModel = new ViewModelProvider(this).get(SharedMainToRescueViewModel.class);
         sharedMainToRescueViewModel.hideFragment().observe(this, new Observer<String>() {
             @Override

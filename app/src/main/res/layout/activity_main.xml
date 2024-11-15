@@ -57,17 +57,4 @@
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/emergency_rescue"
-        android:stateListAnimator="@animator/button_scale_state"
-        android:src="@drawable/ic_float_btn"
-        app:layout_anchor="@id/bottomAppBar"
-        app:maxImageSize="60dp"
-        app:tint="@null"
-        android:elevation="4dp"/>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">Cuu Ho Tech</string>
-    <string name="work_shop">Bản đồ</string>
     <string name="home">Trang chủ</string>
-    <string name="emergency_rescue">Cứu hộ</string>
-    <string name="history">Hoạt dộng</string>
+    <string name="list_order">Xem đơn</string>
+    <string name="message">Tin nhắn</string>
     <string name="account">Tài khoản</string>
     <string name="error_need_to_add_trailing_effect_drawable"> If you set trail enabled, you must set a value to button_trail_drawable. </string>
 </resources>
