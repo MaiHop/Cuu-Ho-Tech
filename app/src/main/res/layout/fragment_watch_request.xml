@@ -31,13 +31,15 @@
             android:layout_marginRight="4dp"
             android:background="@drawable/custom_button_back"
             android:contentDescription="image Back"
-            android:src="@drawable/ic_back" />
+            android:src="@drawable/ic_back"
+            android:visibility="gone"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tin nhắn"
+            android:layout_marginStart="20dp"
+            android:text="Xem đơn"
             android:textColor="@color/gray_800"
             android:textSize="22sp"
             android:lineHeight="28dp"
@@ -52,7 +54,7 @@
         app:tabRippleColor="@null"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        android:contentDescription="Tab thông tin tin nhắn và thông báo"/>
+        android:contentDescription="Tab xem đơn"/>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

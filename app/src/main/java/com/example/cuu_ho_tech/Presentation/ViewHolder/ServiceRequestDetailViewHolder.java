@@ -2,7 +2,7 @@ package com.example.cuu_ho_tech.Presentation.ViewHolder;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cuu_ho_tech.databinding.ItemLocationBinding;
+
 import com.example.cuu_ho_tech.databinding.ItemServiceRequestDetailBinding;
 
 public class ServiceRequestDetailViewHolder extends RecyclerView.ViewHolder{

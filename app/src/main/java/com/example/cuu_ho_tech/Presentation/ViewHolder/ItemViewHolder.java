@@ -2,13 +2,12 @@ package com.example.cuu_ho_tech.Presentation.ViewHolder;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cuu_ho_tech.databinding.ItemLocationBinding;
-
+import com.example.cuu_ho_tech.databinding.ItemListBinding;
 public class ItemViewHolder extends RecyclerView.ViewHolder{
 
-    ItemLocationBinding binding;
+    ItemListBinding binding;
 
-    public ItemViewHolder(ItemLocationBinding binding) {
+    public ItemViewHolder(ItemListBinding binding) {
         super(binding.getRoot());
         this.binding = binding;
 

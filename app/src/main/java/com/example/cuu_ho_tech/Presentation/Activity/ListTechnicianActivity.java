@@ -20,8 +20,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.cuu_ho_tech.Presentation.Adapter.TechnicianSearchAdapter;
 import com.example.cuu_ho_tech.Presentation.ConnectInternet.CheckNetwork;
 import com.example.cuu_ho_tech.Presentation.Fragment.BottomSheetDialogCustomFragment;
-import com.example.cuu_ho_tech.Presentation.Fragment.ListLocationFragment;
-import com.example.cuu_ho_tech.Presentation.Fragment.ListTechnicianStatusFilterFragment;
 import com.example.cuu_ho_tech.R;
 import com.example.cuu_ho_tech.Utils.BottomSheetInterface;
 import com.example.cuu_ho_tech.Utils.ClickListener;

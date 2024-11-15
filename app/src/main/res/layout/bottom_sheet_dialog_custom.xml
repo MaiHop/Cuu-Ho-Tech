@@ -116,7 +116,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="400dp"
                             android:scrollbars="none"
-                            tools:listitem="@layout/item_location"
+                            tools:listitem="@layout/item_list"
                             android:visibility="gone">
 
                         </androidx.recyclerview.widget.RecyclerView>

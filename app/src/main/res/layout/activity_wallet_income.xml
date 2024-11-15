@@ -37,7 +37,7 @@
             android:id="@+id/tv_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tin nhắn"
+            android:text="Xem ví"
             android:textColor="@color/gray_800"
             android:textSize="22sp"
             android:lineHeight="28dp"
@@ -52,8 +52,9 @@
         app:tabRippleColor="@null"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        android:contentDescription="Tab thông tin tin nhắn và thông báo"/>
-    <androidx.constraintlayout.widget.ConstraintLayout
+        android:contentDescription="Tab thông tin ví"
+        />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <!-- ViewPager2 -->
@@ -65,6 +66,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/success_main"
+    tools:context=".Presentation.Activity.ConfirmCancellationActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start|center"
+        android:paddingLeft="4dp"
+        android:paddingTop="8dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="8dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="4dp">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/custom_button_back"
+            android:contentDescription="image Back"
+            android:src="@drawable/ic_back"
+            android:tint="@color/gray_02_100"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0"
+            android:lineHeight="28dp"
+            android:text="Cứu Hộ"
+            android:textColor="@color/gray_800"
+            android:textSize="22sp"
+            android:visibility="gone" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/sv_RequestCancel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="22dp"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:padding="30dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:backgroundTint="@color/gray_02_100"
+                    android:background="@drawable/background_stroke_1_rad_100">
+
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:enabled="true"
+                        android:src="@drawable/ic_dollar"
+                        android:stateListAnimator="@animator/button_scale_state"
+                        app:tint="@color/gray_02_100" />
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:letterSpacing="0"
+                    android:lineHeight="24sp"
+                    android:text="Thu tiền mặt"
+                    android:textColor="@color/gray_02_100"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:id="@+id/tv_wallet_balance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:letterSpacing="0.05"
+                    android:lineHeight="32sp"
+                    android:text="1.000.000.000.000 VNĐ"
+                    android:textColor="@color/gray_02_100"
+                    android:textSize="30sp"
+                    android:textStyle="normal"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:background="@drawable/background_border_top">
+
+        <!--        Lỗi  <com.example.cuu_ho.Custom.SwipeBtn.SwipeButton-->
+        <com.example.cuu_ho_tech.Custom.SwipeBtn.SwipeButton
+            android:id="@+id/swipe_no_state_RequestDetail_confirm_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            app:button_trail_enabled="true"
+            app:button_background="@drawable/background_success_swipe"
+            app:button_image_disabled="@drawable/ic_btn_swipe"
+            app:button_image_enabled="@drawable/ic_success_white"
+            app:initial_state="disabled"
+            app:inner_text="XÁC NHẬN THANH TOÁN"
+            app:inner_text_background="@drawable/shape_squared"
+            app:inner_text_color="@color/gray_02_100"
+            app:inner_text_size="16sp"
+            app:inner_text_top_padding="12dp"
+            app:inner_text_bottom_padding="12dp"
+            app:has_activate_state="true"/>
+
+    </LinearLayout>
+    <include
+        android:id="@+id/ll_no_internet"
+        android:visibility="gone"
+        layout="@layout/layout_no_internet" />
+</LinearLayout>
